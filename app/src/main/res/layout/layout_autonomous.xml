@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Corner Vortex Particles Scored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_text_auto_corner"
+        android:textSize="@dimen/text_sub_title"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/text_sub_title" />
+
+    <TextView
+        android:text="LOAD ERROR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/counter_auto_corner"
+        android:textSize="@dimen/text_items"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/text_items" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_auto_corner_down"
+            android:layout_weight="1"
+            android:textColor="@color/text_button"
+            android:textSize="@dimen/text_button"
+            android:textStyle="bold" />
+
+        <Button
+            android:text="+"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_auto_corner_up"
+            android:layout_weight="1"
+            android:textColor="@color/text_button"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_button" />
+    </LinearLayout>
+
+    <TextView
+        android:text="Corner Vortex Particles Scored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_text_auto_center"
+        android:textSize="@dimen/text_sub_title"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/text_sub_title" />
+
+    <TextView
+        android:text="LOAD ERROR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/counter_auto_center"
+        android:textSize="@dimen/text_items"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/text_items" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/button_auto_center_down"
+            android:textColor="@color/text_button"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_button" />
+
+        <Button
+            android:text="+"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_auto_center_up"
+            android:layout_weight="1"
+            android:textColor="@color/text_button"
+            android:textSize="@dimen/text_button"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:text="Beacons With Correct Color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7"
+        android:textSize="@dimen/text_sub_title"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/text_sub_title" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:text="No Beacons Scored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton3"
+            android:layout_weight="1"
+            android:textColor="@color/text_items"
+            android:textSize="@dimen/text_items" />
+
+        <RadioButton
+            android:text="1 Beacon Scored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton2"
+            android:layout_weight="1"
+            android:textColor="@color/text_items"
+            android:textSize="@dimen/text_items" />
+
+        <RadioButton
+            android:text="2 Beacons Scored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton"
+            android:layout_weight="1"
+            android:textColor="@color/text_items"
+            android:textSize="@dimen/text_items" />
+    </RadioGroup>
+
+</LinearLayout>
