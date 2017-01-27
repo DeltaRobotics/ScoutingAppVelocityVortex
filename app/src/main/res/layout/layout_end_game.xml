@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Capball Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_end_cb_status"
+        android:textSize="22sp"
+        android:textColor="@color/text_sub_title"
+        android:layout_gravity="left"
+        />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:text="Not Raised"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_end_cb_no"
+            android:layout_weight="1"
+            android:checked="true"
+            android:textSize="18sp"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="Low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_end_cb_low"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:textSize="@dimen/text_items"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="High"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_end_cb_high"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="Capped"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_end_cb_capped"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/text_items" />
+    </RadioGroup>
+</LinearLayout>

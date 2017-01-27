@@ -9,6 +9,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * Created by Luke Poellet on 1/26/2017.
+ * Modified by Luke Poellet on 1/26/2017.
+ * Layout Modified by Nolan Eastburn on 1/26/2017.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

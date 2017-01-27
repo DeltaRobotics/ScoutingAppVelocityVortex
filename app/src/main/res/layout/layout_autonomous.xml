@@ -96,22 +96,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sub_title_capball"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="left"
         android:textSize="@dimen/text_sub_title"
         android:textColor="@color/text_sub_title" />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
-        <RadioButton
-            android:text="Yes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radio_auto_cbmoved_yes"
-            android:layout_weight="1"
-            android:textSize="18sp"
-            android:checked="false" />
 
         <RadioButton
             android:text="No"
@@ -120,8 +111,18 @@
             android:id="@+id/radio_auto_cbmoved_no"
             android:layout_weight="1"
             android:textSize="18sp"
+            android:checked="true"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="Yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_auto_cbmoved_yes"
+            android:layout_weight="1"
+            android:textSize="18sp"
             android:textColor="@color/text_items"
-            android:checked="true" />
+            android:checked="false" />
     </RadioGroup>
 
     <TextView
@@ -130,7 +131,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/sub_title_auto_beacons"
         android:textSize="@dimen/text_sub_title"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="left"
         android:textColor="@color/text_sub_title" />
 
     <RadioGroup
@@ -138,7 +139,7 @@
         android:layout_height="wrap_content" >
 
         <RadioButton
-            android:text="No Beacons Score"
+            android:text="No Beacons Scored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/radio_auto_beacons_0"
@@ -174,7 +175,7 @@
         android:id="@+id/sub_title_auto_parking"
         android:textSize="@dimen/text_sub_title"
         android:textColor="@color/text_sub_title"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="left" />
 
     <RadioGroup
         android:layout_width="match_parent"

@@ -4,7 +4,53 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Corner Vortex Particles Scored"
+        android:text="Beacons Pressed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_tele_beacons_pressed"
+        android:textSize="22sp"
+        android:textColor="@color/text_sub_title"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:text="LOAD ERROR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/counter_tele_beacons_scored"
+        android:textSize="18sp"
+        android:textColor="@color/text_items"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_tele_beacons_pressed_down"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textStyle="normal|bold"
+            android:textColor="@color/text_button" />
+
+        <Button
+            android:text="+"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_tele_beacons_pressed_up"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textStyle="normal|bold"
+            android:textColor="@color/text_button" />
+    </LinearLayout>
+
+    <TextView
+        android:text="Particles Scored In Corner Vortex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sub_title_tele_cor_particles"
@@ -17,7 +63,7 @@
         android:text="LOAD ERROR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/counter_tele_cor_particles"
+        android:id="@+id/counter_tele_cor"
         android:textSize="18sp"
         android:textColor="@color/text_items"
         android:layout_gravity="center_horizontal"
@@ -50,4 +96,113 @@
             android:textSize="20sp"
             android:textColor="@color/text_button" />
     </LinearLayout>
+
+    <TextView
+        android:text="Particles Scored In Center Vortex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_tele_cen"
+        android:textSize="22sp"
+        android:textColor="@color/text_sub_title"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:text="LOAD ERROR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/coutner_tele_cen"
+        android:textSize="18sp"
+        android:textColor="@color/text_items"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_tele_cen_down"
+            android:layout_weight="1"
+            android:textStyle="normal|bold"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textColor="@color/text_button" />
+
+        <Button
+            android:text="+"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_tele_cen_up"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textStyle="normal|bold"
+            android:textSize="@dimen/text_button"
+            android:textColor="@color/text_button" />
+    </LinearLayout>
+
+    <TextView
+        android:text="Beacons Scored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_beacons_lit_up"
+        android:textSize="22sp"
+        android:textColor="@color/text_sub_title"
+        android:layout_gravity="left"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:text="No Beacons Scored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_tele_beacons_0"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:checked="true"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="1 Beacon Scored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_tele_beacons_1"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="2 Beacons Scored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_tele_beacons_2"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="3 Beacons Scored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_tele_beacons_3"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_items"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="4 Beacons Scored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_tele_beacons_4"
+            android:textSize="18sp"
+            android:textColor="@color/text_items"
+            android:layout_weight="1" />
+    </RadioGroup>
+
 </LinearLayout>
