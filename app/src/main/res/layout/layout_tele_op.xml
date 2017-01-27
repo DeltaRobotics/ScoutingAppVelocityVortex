@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Corner Vortex Particles Scored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_tele_cor_particles"
+        android:textSize="@dimen/text_sub_title"
+        android:textColor="@color/text_sub_title"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:text="LOAD ERROR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/counter_tele_cor_particles"
+        android:textSize="18sp"
+        android:textColor="@color/text_items"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_tele_cor_down"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textColor="@color/text_button"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:text="+"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_tele_cor_up"
+            android:layout_weight="1"
+            android:textStyle="normal|bold"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textColor="@color/text_button" />
+    </LinearLayout>
+</LinearLayout>

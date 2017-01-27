@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/enter_team_number"
+                    android:id="@+id/enter_match_number"
                     android:hint="Match Number"
                     android:textColor="@color/text_items" />
 
@@ -68,6 +68,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     layout="@layout/layout_autonomous" />
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/banner_strip" />
+
+                <TextView
+                    android:text="Tele-Op"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/title_tele"
+                    android:textSize="40sp"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="normal|bold"
+                    android:textColor="@color/text_title" />
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/layout_tele_op" />
             </LinearLayout>
 
             <include

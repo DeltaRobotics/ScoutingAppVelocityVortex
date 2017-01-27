@@ -7,7 +7,7 @@
         android:text="Corner Vortex Particles Scored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sub_text_auto_corner"
+        android:id="@+id/sub_title_auto_corner"
         android:textSize="@dimen/text_sub_title"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/text_sub_title" />
@@ -48,10 +48,10 @@
     </LinearLayout>
 
     <TextView
-        android:text="Corner Vortex Particles Scored"
+        android:text="Center Vortex Particles Scored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sub_text_auto_center"
+        android:id="@+id/sub_title_auto_center"
         android:textSize="@dimen/text_sub_title"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/text_sub_title" />
@@ -92,10 +92,43 @@
     </LinearLayout>
 
     <TextView
+        android:text="Capball Moved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_capball"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/text_sub_title"
+        android:textColor="@color/text_sub_title" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:text="Yes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_auto_cbmoved_yes"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:checked="false" />
+
+        <RadioButton
+            android:text="No"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_auto_cbmoved_no"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/text_items"
+            android:checked="true" />
+    </RadioGroup>
+
+    <TextView
         android:text="Beacons With Correct Color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView7"
+        android:id="@+id/sub_title_auto_beacons"
         android:textSize="@dimen/text_sub_title"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/text_sub_title" />
@@ -105,19 +138,20 @@
         android:layout_height="wrap_content" >
 
         <RadioButton
-            android:text="No Beacons Scored"
+            android:text="No Beacons Score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radioButton3"
+            android:id="@+id/radio_auto_beacons_0"
             android:layout_weight="1"
             android:textColor="@color/text_items"
-            android:textSize="@dimen/text_items" />
+            android:textSize="@dimen/text_items"
+            android:checked="true" />
 
         <RadioButton
             android:text="1 Beacon Scored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radioButton2"
+            android:id="@+id/radio_auto_beacons_1"
             android:layout_weight="1"
             android:textColor="@color/text_items"
             android:textSize="@dimen/text_items" />
@@ -126,10 +160,72 @@
             android:text="2 Beacons Scored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radioButton"
+            android:id="@+id/radio_auto_beacons_2"
             android:layout_weight="1"
             android:textColor="@color/text_items"
             android:textSize="@dimen/text_items" />
+
+    </RadioGroup>
+
+    <TextView
+        android:text="Parking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_auto_parking"
+        android:textSize="@dimen/text_sub_title"
+        android:textColor="@color/text_sub_title"
+        android:layout_gravity="center_horizontal" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:text="Not Parked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_auto_parking_not"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_items"
+            android:textColor="@color/text_items"
+            android:checked="true" />
+
+        <RadioButton
+            android:text="Partial Corner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_auto_parking_cor_par"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_items"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="Fully On Corner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_auto_parking_cor"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_items"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="Partial Center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_auto_parking_par_cen"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/text_items" />
+
+        <RadioButton
+            android:text="Fully On Center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_auto_parking_cen"
+            android:layout_weight="1"
+            android:textSize="@dimen/text_items"
+            android:textColor="@color/text_items" />
+
     </RadioGroup>
 
 </LinearLayout>
