@@ -115,10 +115,29 @@
                     android:layout_height="wrap_content"
                     layout="@layout/banner_strip" />
 
-                <include
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/layout_save_and_clear" />
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:text="Clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button_clear"
+                        android:layout_weight="1"
+                        android:textColor="@color/text_button"
+                        android:textSize="@dimen/text_button" />
+
+                    <Button
+                        android:text="Save"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button_save"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/text_button"
+                        android:textColor="@color/text_button" />
+                </LinearLayout>
 
             </LinearLayout>
 

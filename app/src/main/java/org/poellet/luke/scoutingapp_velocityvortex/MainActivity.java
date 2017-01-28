@@ -1,5 +1,6 @@
 package org.poellet.luke.scoutingapp_velocityvortex;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -32,12 +33,16 @@ public class MainActivity extends AppCompatActivity {
         public void autoCenterUp(View v) {autoCenter.addModifier();}
         public void autoCenterDown(View v) {autoCenter.removeModifier();}
 
+
+    //Setup System Controls------DON'T CHANGE----------
+
+        //Nothing yet
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setupActionBar();
 
         this.setup();
 
@@ -58,11 +63,32 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_moveTo_about)
+        {
+
+            setContentView(R.layout.activity_about);
+            setupActionBar();
+            return true;
+        }
+
+        //Temporary-----------------------------------------
+        if (id == R.id.action_moveTo_main)
+        {
+
+            setContentView(R.layout.activity_main);
+            setupActionBar();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setupActionBar()
+    {
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
     }
 
     private void setup()

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="What Is This App"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView7"
+        android:textSize="@dimen/text_sub_title"
+        android:textColor="@color/text_sub_title"
+        android:textStyle="bold" />
+
+    <TextView
+        android:text="Blah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:textSize="@dimen/text_items"
+        android:textColor="@color/text_sub_title" />
+
+    <TextView
+        android:text="How To Use This App"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textSize="@dimen/text_sub_title"
+        android:textColor="@color/text_sub_title"
+        android:textStyle="bold" />
+
+    <TextView
+        android:text="Blah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textSize="@dimen/text_items"
+        android:textColor="@color/text_sub_title" />
+
+    <TextView
+        android:text="Somthing About Delta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="@dimen/text_sub_title"
+        android:textColor="@color/text_sub_title"
+        android:textStyle="bold" />
+
+    <TextView
+        android:text="Blah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textSize="@dimen/text_items"
+        android:textColor="@color/text_sub_title" />
+
+    <TextView
+        android:text="PHP Rating System"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textSize="@dimen/text_sub_title"
+        android:textColor="@color/text_sub_title"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:text="Save PHP Data File"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ check_php_save"
+        android:textSize="@dimen/text_items" />
+
+    <TextView
+        android:text="Blah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:textSize="@dimen/text_items"
+        android:textColor="@color/text_sub_title" />
+
+</LinearLayout>

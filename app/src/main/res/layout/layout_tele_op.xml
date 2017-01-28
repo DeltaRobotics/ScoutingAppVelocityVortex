@@ -50,7 +50,7 @@
     </LinearLayout>
 
     <TextView
-        android:text="Particles Scored In Corner Vortex"
+        android:text="Corner Vortex Particles Scored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sub_title_tele_cor_particles"
@@ -98,7 +98,7 @@
     </LinearLayout>
 
     <TextView
-        android:text="Particles Scored In Center Vortex"
+        android:text="Center Vortex Particles Scored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sub_title_tele_cen"

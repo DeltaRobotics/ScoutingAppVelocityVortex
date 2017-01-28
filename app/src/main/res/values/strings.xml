@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">ScoutingApp_VelocityVortex</string>
-    <string name="action_settings">Settings</string>
-
+    <string name="app_name">Scouting App</string>
     <string name="game_name">Velocity Vortex</string>
+    <string name="title_activity_about">About</string>
 </resources>
