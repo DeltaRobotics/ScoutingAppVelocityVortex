@@ -110,6 +110,16 @@
                     android:layout_height="wrap_content"
                     layout="@layout/layout_end_game" />
 
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/banner_strip" />
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/layout_save_and_clear" />
+
             </LinearLayout>
 
             <include
