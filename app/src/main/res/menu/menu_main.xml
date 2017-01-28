@@ -14,4 +14,10 @@
         android:orderInCategory="100"
         android:title="About"
         app:showAsAction="never" />
+
+    <item android:title="Settings"
+        android:id="@+id/action_moveTo_settings"
+        app:showAsAction="never"
+        android:orderInCategory="100"
+        />
 </menu>

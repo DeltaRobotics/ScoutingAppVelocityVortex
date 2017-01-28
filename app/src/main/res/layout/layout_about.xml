@@ -7,75 +7,112 @@
         android:text="What Is This App"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView7"
-        android:textSize="@dimen/text_sub_title"
+        android:id="@+id/sub_title_about_theApp"
+        android:textSize="22sp"
         android:textColor="@color/text_sub_title"
         android:textStyle="bold" />
 
     <TextView
-        android:text="Blah"
+        android:text="This app is designed to record scoring in the 2016-17 Velocity Vortex challenge.\n"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView6"
-        android:textSize="@dimen/text_items"
-        android:textColor="@color/text_sub_title" />
+        android:id="@+id/text_about_body_theApp_body"
+        android:textSize="20sp"
+        android:textColor="@color/text_about_body" />
 
     <TextView
         android:text="How To Use This App"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView5"
+        android:id="@+id/text_sub_title_about_useApp"
         android:textSize="@dimen/text_sub_title"
         android:textColor="@color/text_sub_title"
         android:textStyle="bold" />
 
     <TextView
-        android:text="Blah"
+        android:text="Simply add data to the fields corresponding to what objectives a team completed. Then, save the file by pressing the save button at the bottom of the app. Finally, the app will output a file with all the info in the match that can be found in the VelocityVortex folder in the home directory of your phone.\n"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:textSize="@dimen/text_items"
-        android:textColor="@color/text_sub_title" />
+        android:id="@+id/text_about_body_useApp_body"
+        android:textSize="20sp"
+        android:textColor="@color/text_about_body" />
 
     <TextView
         android:text="Somthing About Delta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
+        android:textSize="@dimen/text_sub_title"
+        android:textColor="@color/text_sub_title"
+        android:textStyle="bold"
+        android:id="@+id/sub_title_about_body_aboutDelta" />
+
+    <TextView
+        android:text="We are a 2nd year independent FTC Robotics team that strives to connect with others in more ways than just robotics.\n"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/text_about_body"
+        android:id="@+id/text_about_body_aboutDelta_body" />
+
+    <TextView
+        android:text="Readable File Output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_about_body_readableFile"
+        android:textStyle="normal|bold"
+        android:textSize="22sp"
+        android:textColor="@color/text_sub_title" />
+
+    <TextView
+        android:text="One of the two file outputs is the readable file output. This is a file that contains all the results of the match, corresponding to what you entered, in a readable format.\n"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_about_body_readableFile_body"
+        android:textSize="20sp"
+        android:textColor="@color/text_about_body" />
+
+    <TextView
+        android:text="CSV File Output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_about_body_csvFile"
+        android:textSize="22sp"
+        android:textColor="@color/text_sub_title"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="The other file output option is a CSV (Comma Seperated Values) file output. This file can be inserted into our online rating system (see below).\n"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_about_body_csvFile_body"
+        android:textSize="20sp"
+        android:textColor="@color/text_about_body" />
+
+    <TextView
+        android:text="Online Rating System"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_about_body_ratingSys"
         android:textSize="@dimen/text_sub_title"
         android:textColor="@color/text_sub_title"
         android:textStyle="bold" />
 
     <TextView
-        android:text="Blah"
+        android:text="The CSV file (see above) can be imported into a PHP website. This website takes the values from the file and displays them in a nice readable way to the user.\n"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:textSize="@dimen/text_items"
-        android:textColor="@color/text_sub_title" />
+        android:id="@+id/text_about_body_textSys_body"
+        android:textSize="20sp"
+        android:textColor="@color/text_about_body" />
 
     <TextView
-        android:text="PHP Rating System"
-        android:layout_width="match_parent"
+        android:text="\n\n\nVersion 1.0"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:textSize="@dimen/text_sub_title"
-        android:textColor="@color/text_sub_title"
-        android:textStyle="bold" />
-
-    <CheckBox
-        android:text="Save PHP Data File"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ check_php_save"
-        android:textSize="@dimen/text_items" />
-
-    <TextView
-        android:text="Blah"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView9"
-        android:textSize="@dimen/text_items"
-        android:textColor="@color/text_sub_title" />
+        android:id="@+id/version"
+        android:textSize="20dp"
+        android:textColor="@color/text_version"
+        android:layout_gravity="bottom"
+        />
 
 </LinearLayout>

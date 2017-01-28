@@ -79,9 +79,18 @@ public class MainActivity extends AppCompatActivity {
             setupActionBar();
             return true;
         }
+        if (id == R.id.action_moveTo_settings)
+        {
+            setContentView(R.layout.activity_settings);
+            setupActionBar();
+            return true;
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     private void setupActionBar()
     {
