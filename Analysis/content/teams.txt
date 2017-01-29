@@ -1,0 +1,30 @@
+9925:Delta Robotics
+10107:A League Of Their Own
+10986:ARC
+367:Accident Prone
+9047:Circuit Clowns
+6121:CougarBots
+4150:Dark Matter
+5913:Drop It Like It's Bot
+6189:High Voltage
+11900:ICCR Youth
+4324:Lost In Time
+3549:Matter of Perspective
+7189:McKinley 5
+10071:Nuts, Bolts, and Issues
+458:Percussive Maintenance
+10110:Pixel Knights
+6532:Robo Bears
+11252:RoboCats Black
+4156:RoboCats Red
+7130:Royal Robots
+9708:Sparklebots
+9950:Tachyon Travelers
+9988:Taft Robotics
+9215:Team Talos
+7110:The Element of Surprise
+4175:The Toxic Avengers
+8695:Tri Hards
+6113:WHO
+6499:Warrior Bots
+5143:Xcentrics
