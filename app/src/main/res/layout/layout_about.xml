@@ -105,14 +105,4 @@
         android:textSize="20sp"
         android:textColor="@color/text_about_body" />
 
-    <TextView
-        android:text="\n\n\nVersion 1.0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/version"
-        android:textSize="20dp"
-        android:textColor="@color/text_version"
-        android:layout_gravity="bottom"
-        />
-
 </LinearLayout>

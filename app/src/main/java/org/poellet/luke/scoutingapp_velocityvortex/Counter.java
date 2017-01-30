@@ -4,7 +4,7 @@ import android.widget.TextView;
 
 /**
  * Created by Luke Poellet on 1/26/2017.
- * Modified by Luke Poellet on 1/26/2017.
+ * Modified by Luke Poellet on 1/29/2017.
  */
 
 public class Counter
@@ -21,9 +21,9 @@ public class Counter
     private int startValue;
     private int curValue;
 
-    private TextView output;
+    private TextView output = null;
 
-    public Counter(int minPass, boolean hasMinPass, int maxPass, boolean hasMaxPass, int modifierPass, int startValuePass, TextView outputPass)
+    public Counter(int minPass, boolean hasMinPass, int maxPass, boolean hasMaxPass, int modifierPass, int startValuePass)
     {
 
         min = minPass;
@@ -35,10 +35,6 @@ public class Counter
         modifier = modifierPass;
 
         startValue = startValuePass;
-
-        output = outputPass;
-
-        this.setValue(startValuePass);
 
     }
 
@@ -82,7 +78,13 @@ public class Counter
     private void changeOutput()
     {
 
-        output.setText(this.getStringValue());
+        if(output != null)
+        {
+
+            output.setText(this.getStringValue());
+            //System.out.println(curValue);
+
+        }
 
     }
 
@@ -100,7 +102,15 @@ public class Counter
 
     }
 
-    public void reset()
+    public void setOutput(TextView outputPass)
+    {
+
+        output = outputPass;
+        this.changeOutput();
+
+    }
+
+    public void resetToDefault()
     {
 
         this.setValue(startValue);

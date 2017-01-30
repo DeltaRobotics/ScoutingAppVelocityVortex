@@ -127,7 +127,8 @@
                         android:id="@+id/button_clear"
                         android:layout_weight="1"
                         android:textColor="@color/text_button"
-                        android:textSize="@dimen/text_button" />
+                        android:textSize="@dimen/text_button"
+                        android:onClick="clear" />
 
                     <Button
                         android:text="Save"
@@ -136,7 +137,8 @@
                         android:id="@+id/button_save"
                         android:layout_weight="1"
                         android:textSize="@dimen/text_button"
-                        android:textColor="@color/text_button" />
+                        android:textColor="@color/text_button"
+                        android:onClick="save" />
                 </LinearLayout>
 
             </LinearLayout>

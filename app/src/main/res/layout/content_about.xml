@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.poellet.luke.scoutingapp_velocityvortex.About"
+    tools:context="org.poellet.luke.scoutingapp_velocityvortex.MainActivity"
     tools:showIn="@layout/activity_about"
     android:orientation="vertical">
 
@@ -22,19 +22,26 @@
             <include
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                layout="@layout/banner_top"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                layout="@layout/banner_top" />
 
             <include
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/layout_about" />
 
+            <TextView
+                android:text="@string/version_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/version"
+                android:textSize="@dimen/text_version"
+                android:textColor="@color/text_version" />
+
             <include
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/banner_bottom" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

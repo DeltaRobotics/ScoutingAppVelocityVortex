@@ -7,8 +7,10 @@
     <dimen name="text_sub_title">22sp</dimen>
     <dimen name="text_items">18sp</dimen>
     <dimen name="text_button">20sp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+
     <dimen name="text_about_body">20sp</dimen>
-    <dimen name="toolbar_size">56dp</dimen>
-    <dimen name="text_version">20dp</dimen>
+    <dimen name="text_version">18dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+
 </resources>

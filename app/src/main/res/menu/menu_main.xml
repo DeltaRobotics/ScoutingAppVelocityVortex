@@ -3,21 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="org.poellet.luke.scoutingapp_velocityvortex.MainActivity">
 
-    <item
-        android:id="@+id/action_moveTo_main"
+    <item android:title="Settings"
+        android:id="@+id/action_moveTo_settings"
+        app:showAsAction="never"
         android:orderInCategory="100"
-        android:title="Main(temp)"
-        app:showAsAction="never" />
+        />
 
     <item
         android:id="@+id/action_moveTo_about"
         android:orderInCategory="100"
         android:title="About"
         app:showAsAction="never" />
-
-    <item android:title="Settings"
-        android:id="@+id/action_moveTo_settings"
-        app:showAsAction="never"
+    <item
+        android:id="@+id/action_moveTo_main"
         android:orderInCategory="100"
-        />
+        android:title="Main(temp)"
+        app:showAsAction="never" />
+
 </menu>

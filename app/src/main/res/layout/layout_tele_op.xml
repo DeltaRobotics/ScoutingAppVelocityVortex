@@ -4,52 +4,6 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Beacons Pressed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sub_title_tele_beacons_pressed"
-        android:textSize="22sp"
-        android:textColor="@color/text_sub_title"
-        android:layout_gravity="center_horizontal"
-        />
-
-    <TextView
-        android:text="LOAD ERROR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/counter_tele_beacons_scored"
-        android:textSize="18sp"
-        android:textColor="@color/text_items"
-        android:layout_gravity="center_horizontal"
-        />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:text="-"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button_tele_beacons_pressed_down"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:textStyle="normal|bold"
-            android:textColor="@color/text_button" />
-
-        <Button
-            android:text="+"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button_tele_beacons_pressed_up"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:textStyle="normal|bold"
-            android:textColor="@color/text_button" />
-    </LinearLayout>
-
-    <TextView
         android:text="Corner Vortex Particles Scored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,7 +17,7 @@
         android:text="LOAD ERROR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/counter_tele_cor"
+        android:id="@+id/counter_tele_corner"
         android:textSize="18sp"
         android:textColor="@color/text_items"
         android:layout_gravity="center_horizontal"
@@ -83,7 +37,8 @@
             android:textAllCaps="false"
             android:textSize="20sp"
             android:textColor="@color/text_button"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:onClick="teleCornerDown" />
 
         <Button
             android:text="+"
@@ -94,7 +49,8 @@
             android:textStyle="normal|bold"
             android:textAllCaps="false"
             android:textSize="20sp"
-            android:textColor="@color/text_button" />
+            android:textColor="@color/text_button"
+            android:onClick="teleCornerUp" />
     </LinearLayout>
 
     <TextView
@@ -111,7 +67,7 @@
         android:text="LOAD ERROR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/coutner_tele_cen"
+        android:id="@+id/counter_tele_center"
         android:textSize="18sp"
         android:textColor="@color/text_items"
         android:layout_gravity="center_horizontal"
@@ -131,7 +87,8 @@
             android:textStyle="normal|bold"
             android:textAllCaps="false"
             android:textSize="20sp"
-            android:textColor="@color/text_button" />
+            android:textColor="@color/text_button"
+            android:onClick="teleCenterDown" />
 
         <Button
             android:text="+"
@@ -142,7 +99,56 @@
             android:textAllCaps="false"
             android:textStyle="normal|bold"
             android:textSize="@dimen/text_button"
-            android:textColor="@color/text_button" />
+            android:textColor="@color/text_button"
+            android:onClick="teleCenterUp" />
+    </LinearLayout>
+
+    <TextView
+        android:text="Beacons Pressed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_tele_beacons_pressed"
+        android:textSize="22sp"
+        android:textColor="@color/text_sub_title"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+    android:text="LOAD ERROR"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/counter_tele_beacons_pressed"
+    android:textSize="18sp"
+    android:textColor="@color/text_items"
+    android:layout_gravity="center_horizontal"
+    />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="-"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_tele_beacons_pressed_down"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textStyle="normal|bold"
+            android:textColor="@color/text_button"
+            android:onClick="teleBeaconsPressedDown" />
+
+        <Button
+            android:text="+"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_tele_beacons_pressed_up"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textStyle="normal|bold"
+            android:textColor="@color/text_button"
+            android:onClick="teleBeaconsPressedUp" />
     </LinearLayout>
 
     <TextView
@@ -165,7 +171,7 @@
             android:id="@+id/radio_tele_beacons_0"
             android:layout_weight="1"
             android:textSize="18sp"
-            android:checked="true"
+            android:checked="false"
             android:textColor="@color/text_items" />
 
         <RadioButton

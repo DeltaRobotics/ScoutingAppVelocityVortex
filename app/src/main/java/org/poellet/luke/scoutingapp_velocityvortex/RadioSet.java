@@ -4,7 +4,7 @@ import android.widget.RadioButton;
 
 /**
  * Created by Luke Poellet on 1/26/2017.
- * Modified by Luke Poellet on 1/26/2017.
+ * Modified by Luke Poellet on 1/29/2017.
  */
 
 public class RadioSet
@@ -18,6 +18,8 @@ public class RadioSet
     private int arrayLength = 0;
     private boolean specialTextError = false;
 
+    private int startChecked;
+
     public RadioSet(boolean hasSpecialTextPass)
     {
 
@@ -25,7 +27,14 @@ public class RadioSet
 
     }
 
-    public void addRadioButton(RadioButton newRadioButton)
+    public void resetButtonsArray()
+    {
+
+        arrayLength = 0;
+
+    }
+
+    public void addRadioButton(RadioButton newRadioButton, boolean checked)
     {
 
         buttonsArray[arrayLength] = newRadioButton;
@@ -38,16 +47,36 @@ public class RadioSet
 
         }
 
+        buttonsArray[arrayLength].setChecked(false);
+
+        if(checked == true)
+        {
+
+            startChecked = arrayLength;
+            this.resetToDefault();
+
+        }
+
         arrayLength = arrayLength + 1;
 
     }
 
-    public void addRadioButtonWithText(RadioButton newRadioButton, String newSpecialText)
+    public void addRadioButtonWithText(RadioButton newRadioButton, String newSpecialText, boolean checked)
     {
 
         buttonsArray[arrayLength] = newRadioButton;
 
         specialTextArray[arrayLength] = newSpecialText;
+
+        buttonsArray[arrayLength].setChecked(false);
+
+        if(checked == true)
+        {
+
+            startChecked = arrayLength;
+            this.resetToDefault();
+
+        }
 
         arrayLength = arrayLength + 1;
 
@@ -56,7 +85,7 @@ public class RadioSet
     public String getStringValue()
     {
 
-        if(arrayLength <= 0)
+        if(arrayLength <= 0 || specialTextError == true)
         {
 
             return "RADIO_ERROR";
@@ -72,7 +101,7 @@ public class RadioSet
 
         }
 
-        if(specialTextError == false)
+        if(hasSpecialText == true)
         {
 
             return specialTextArray[checked];
@@ -86,7 +115,7 @@ public class RadioSet
     private int getChecked()
     {
 
-        int forLoop;
+        int loop;
 
         if(arrayLength == 0)
         {
@@ -95,19 +124,26 @@ public class RadioSet
 
         }
 
-        for(forLoop= 0; forLoop < arrayLength; forLoop++)
+        for(loop= 0; loop < arrayLength; loop++)
         {
 
-            if(buttonsArray[forLoop].isChecked())
+            if(buttonsArray[loop].isChecked())
             {
 
-                return forLoop;
+                return loop;
 
             }
 
         }
 
         return -1;
+
+    }
+
+    public void resetToDefault()
+    {
+
+        buttonsArray[startChecked].setChecked(true);
 
     }
 

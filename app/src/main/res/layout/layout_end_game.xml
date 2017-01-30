@@ -21,9 +21,9 @@
             android:text="Not Raised"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radio_end_cb_no"
+            android:id="@+id/radio_end_capball_not"
             android:layout_weight="1"
-            android:checked="true"
+            android:checked="false"
             android:textSize="18sp"
             android:textColor="@color/text_items" />
 
@@ -31,7 +31,7 @@
             android:text="Low"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radio_end_cb_low"
+            android:id="@+id/radio_end_capball_low"
             android:layout_weight="1"
             android:fontFamily="sans-serif"
             android:textSize="@dimen/text_items"
@@ -41,7 +41,7 @@
             android:text="High"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radio_end_cb_high"
+            android:id="@+id/radio_end_capball_high"
             android:layout_weight="1"
             android:textSize="18sp"
             android:textColor="@color/text_items" />
@@ -50,7 +50,7 @@
             android:text="Capped"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radio_end_cb_capped"
+            android:id="@+id/radio_end_capball_capped"
             android:layout_weight="1"
             android:textSize="18sp"
             android:textColor="@color/text_items" />
