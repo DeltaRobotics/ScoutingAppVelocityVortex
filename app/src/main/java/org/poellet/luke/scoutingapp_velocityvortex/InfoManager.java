@@ -45,6 +45,10 @@ public class InfoManager
 
     private String gameName;
 
+    private File saveFile;
+    private File saveDir;
+    String info = "";
+
     public InfoManager(String gameNamePass)
     {
 
@@ -146,7 +150,6 @@ public class InfoManager
 
         String teamNumber = this.pullTeamNumber();
         String matchNumber = this.pullMatchNumber();
-        String info = "";
         int loop;
 
         counterPlace = 0;
@@ -159,8 +162,7 @@ public class InfoManager
         if(teamNumber.equals(""))
         {
 
-            teamNumberLocation.clearFocus();
-            teamNumberLocation.requestFocus();
+            this.teamNumberClaimFocus();
             alertDialogMissingData.setMessage("Please Enter a Team Number");
             alertDialogMissingData.show();
             return;
@@ -170,8 +172,7 @@ public class InfoManager
         if(matchNumber.equals(""))
         {
 
-            teamNumberLocation.clearFocus();
-            matchNumberLocation.requestFocus();
+            this.matchNumberClaimFocus();
             alertDialogMissingData.setMessage("Please Enter a Match Number");
             alertDialogMissingData.show();
             return;
@@ -228,11 +229,37 @@ public class InfoManager
         //System.out.println(matchNumber);
         //System.out.println(info);
 
-        final File saveFile = new File(Environment.getExternalStorageDirectory().getPath() + File.separator +
+        saveFile = new File(Environment.getExternalStorageDirectory().getPath() + File.separator +
                 gameName + File.separator + teamNumber + File.separator +
                 teamNumber + "-" + matchNumber + ".txt");
+        saveDir = new File(Environment.getExternalStorageDirectory().getPath() + File.separator +
+                gameName + File.separator + teamNumber);
 
-        switch(this.checkFile(teamNumber, matchNumber, saveFile))
+        try
+        {
+
+            if(saveDir.mkdirs() == true)
+            {
+
+                System.out.println("Directory Created");
+
+            }
+            else
+            {
+
+                System.out.println("Directory Exists or Creation Failed");
+
+            }
+
+        }
+        catch (Exception e)
+        {
+
+            System.out.println(e);
+
+        }
+
+        switch(this.checkFile(saveFile))
         {
 
             //case 1: File Does Not Exists
@@ -241,18 +268,7 @@ public class InfoManager
 
             case 1:
 
-                if(saveFile.mkdirs() == true)
-                {
-
-                    this.createAndSaveFile(info, saveFile, false);
-
-                }
-                else
-                {
-
-                    System.out.println("File Creation Failed");
-
-                }
+                this.createAndSaveFile(info, saveFile, false);
 
                 break;
 
@@ -265,9 +281,8 @@ public class InfoManager
                 alertDialogFileExists.setButton(AlertDialog.BUTTON_NEGATIVE, "CANCEL", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
                 {
 
-                    teamNumberLocation.clearFocus();
-                    matchNumberLocation.requestFocus();
                     dialog.dismiss();
+                    matchNumberClaimFocus();
 
                 }});
 
@@ -276,7 +291,7 @@ public class InfoManager
                 {
 
                     dialog.dismiss();
-                    //createAndSaveFile(info, saveFile, true);
+                    createAndSaveFile(info, saveFile, true);
 
                 }});
 
@@ -293,74 +308,9 @@ public class InfoManager
 
         }
 
-
-/*
-        //Change File name to variable------------------------
-
-        String filePath;
-        String fileName;
-        File fileOut = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "VelocityVortex" + File.separator);
-        filePath = fileOut.getPath();
-        System.out.println(filePath);
-
-        File test = new File(fileOut.getPath() + File.separator + "test.txt");
-        System.out.println(fileOut.mkdirs());
-
-
-        try
-        {
-
-            boolean temp = test.createNewFile();
-            System.out.println(temp);
-
-
-
-        }catch (IOException e)
-        {
-
-            System.out.println(e);
-
-        }
-
-        try
-        {
-
-
-            FileOutputStream test2 = new FileOutputStream(test);
-            test2.write(info.getBytes());
-            test2.flush();
-            test2.close();
-
-            StringBuilder text = new StringBuilder();
-
-            BufferedReader br = new BufferedReader(new FileReader(test));
-            String line;
-
-            while ((line = br.readLine()) != null)
-            {
-
-                text.append(line + "\n");
-
-            }
-            br.close();
-            System.out.println(text);
-
-
-
-        }catch (IOException e)
-        {
-
-            System.out.println(e);
-
-        }
-
-*/
-
-
-
     }
 
-    private int checkFile(String teamNumber, String matchNumber, File check)
+    private int checkFile(File check)
     {
 
         //case 1: File Does Not Exist
@@ -447,6 +397,22 @@ public class InfoManager
     {
 
         return matchNumberLocation.getText().toString();
+
+    }
+
+    private void teamNumberClaimFocus()
+    {
+
+        teamNumberLocation.clearFocus();
+        teamNumberLocation.requestFocus();
+
+    }
+
+    private void matchNumberClaimFocus()
+    {
+
+        matchNumberLocation.clearFocus();
+        matchNumberLocation.requestFocus();
 
     }
 
