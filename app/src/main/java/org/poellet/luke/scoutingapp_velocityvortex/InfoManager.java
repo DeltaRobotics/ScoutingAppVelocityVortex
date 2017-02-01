@@ -47,6 +47,7 @@ public class InfoManager
 
     private File saveFile;
     private File saveDir;
+    private File checkFile = null;
     String info = "";
 
     public InfoManager(String gameNamePass)
@@ -145,8 +146,15 @@ public class InfoManager
 
     }
 
-    public void saveFile(Context MainActivity)
+    public int createFileInfoAndPath(Context MainActivity)
     {
+
+        //Return Case 2: File Exists and File Setup Finished
+        //Return Case 1: File Does Not Exist and File Setup Finished
+        //Return Case 0: Do Nothing
+        //Return Case -1: Directory Creation Failed
+        //Return Case -2: Info Creation Failed
+        //Return Case -999: Unknown Fail
 
         String teamNumber = this.pullTeamNumber();
         String matchNumber = this.pullMatchNumber();
@@ -165,7 +173,7 @@ public class InfoManager
             this.teamNumberClaimFocus();
             alertDialogMissingData.setMessage("Please Enter a Team Number");
             alertDialogMissingData.show();
-            return;
+            return 0;
 
         }
 
@@ -175,7 +183,7 @@ public class InfoManager
             this.matchNumberClaimFocus();
             alertDialogMissingData.setMessage("Please Enter a Match Number");
             alertDialogMissingData.show();
-            return;
+            return 0;
 
         }
 
@@ -219,7 +227,7 @@ public class InfoManager
             {
 
                 info = "ERROR";
-                loop = orderNext;
+                return -2;
 
             }
 
@@ -235,10 +243,71 @@ public class InfoManager
         saveDir = new File(Environment.getExternalStorageDirectory().getPath() + File.separator +
                 gameName + File.separator + teamNumber);
 
+        switch(this.checkFile())
+        {
+
+            //Switch Case 1: File Does Not Exists
+            //Switch Case 2: File Exists
+            //case -1: Directory Creation Failed
+            //case -999: Unknown Fail
+
+            case 1:
+
+                System.out.println("File Does Not Exist");
+                return 1;
+
+                break;
+
+            case 2:
+
+                System.out.println("File Exists");
+                return 2;
+
+                break;
+
+            case -1:
+
+                return -1;
+
+                break;
+
+            case -999:
+
+                return -999;
+
+                break;
+
+            default:
+
+                return -999;
+
+                break;
+
+        }
+
+    }
+
+    private int checkFile()
+    {
+
+        //case 1: File Does Not Exist
+        //case 2: File Exists
+        //case -1: Directory Creation Failed
+        //case -999: Unknown Fail
+
         try
         {
 
-            if(saveDir.mkdirs() == true)
+            boolean makeDir = saveDir.mkdirs();
+            boolean dirExists = saveDir.exists();
+
+            if(dirExists == true)
+            {
+
+                System.out.println("Directory Exists");
+
+            }
+            else if(makeDir == true && dirExists == false)
             {
 
                 System.out.println("Directory Created");
@@ -247,7 +316,9 @@ public class InfoManager
             else
             {
 
-                System.out.println("Directory Exists or Creation Failed");
+                System.out.println("Failed to Create Directory(s)");
+                checkFile = null;
+                return -1;
 
             }
 
@@ -259,82 +330,29 @@ public class InfoManager
 
         }
 
-        switch(this.checkFile(saveFile))
+        boolean fileExists = saveFile.exists();
+
+        if(fileExists == false)
         {
 
-            //case 1: File Does Not Exists
-            //case 2: File Exists
-            //case -999: Unknown Fail
-
-            case 1:
-
-                this.createAndSaveFile(info, saveFile, false);
-
-                break;
-
-            case 2:
-
-                System.out.println("File Exists");
-
-                AlertDialog alertDialogFileExists = new AlertDialog.Builder(MainActivity).create();
-                alertDialogFileExists.setTitle("File Exists");
-                alertDialogFileExists.setButton(AlertDialog.BUTTON_NEGATIVE, "CANCEL", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
-                {
-
-                    dialog.dismiss();
-                    matchNumberClaimFocus();
-
-                }});
-
-
-                alertDialogFileExists.setButton(AlertDialog.BUTTON_POSITIVE, "OVERWRITE", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
-                {
-
-                    dialog.dismiss();
-                    createAndSaveFile(info, saveFile, true);
-
-                }});
-
-                alertDialogFileExists.setMessage("Do You Want to Overwrite This File?");
-                alertDialogFileExists.show();
-
-                break;
-
-            case -999:
-                break;
-
-            default:
-                break;
-
-        }
-
-    }
-
-    private int checkFile(File check)
-    {
-
-        //case 1: File Does Not Exist
-        //case 2: File Exists
-        //case -999: Unknown Fail
-
-        if(check.exists() == false)
-        {
-
+            checkFile = saveFile;
             return 1;
 
         }
-        else if(check.exists() == true)
+        else if(fileExists == true)
         {
 
+            checkFile = saveFile;
             return 2;
 
         }
 
+        checkFile = null;
         return -999;
 
     }
 
-    private boolean createAndSaveFile(String info, File saveFile, boolean delExisting)
+    public boolean createAndSaveFile(String info, File saveFile, boolean delExisting)
     {
 
         try

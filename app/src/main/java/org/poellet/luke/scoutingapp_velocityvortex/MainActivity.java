@@ -1,6 +1,8 @@
 package org.poellet.luke.scoutingapp_velocityvortex;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -344,6 +346,28 @@ public class MainActivity extends AppCompatActivity {
     {
 
         infoManager.saveFile(MainActivity.this);
+
+        AlertDialog alertDialogFileExists = new AlertDialog.Builder(MainActivity).create();
+        alertDialogFileExists.setTitle("File Exists");
+        alertDialogFileExists.setButton(AlertDialog.BUTTON_NEGATIVE, "CANCEL", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
+        {
+
+            dialog.dismiss();
+            matchNumberClaimFocus();
+
+        }});
+
+
+        alertDialogFileExists.setButton(AlertDialog.BUTTON_POSITIVE, "OVERWRITE", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
+        {
+
+            dialog.dismiss();
+            createAndSaveFile(info, saveFile, true);
+
+        }});
+
+        alertDialogFileExists.setMessage("Do You Want to Overwrite This File?");
+        alertDialogFileExists.show();
 
     }
 
