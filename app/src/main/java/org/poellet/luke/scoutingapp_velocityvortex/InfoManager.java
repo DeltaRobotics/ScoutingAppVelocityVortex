@@ -3,7 +3,14 @@ package org.poellet.luke.scoutingapp_velocityvortex;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Environment;
 import android.widget.EditText;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * Created by Luke Poellet on 1/29/2017.
@@ -35,6 +42,15 @@ public class InfoManager
 
     private String[] arrayOutputText = new String[20];
     private int outputTextNext = 0;
+
+    private String gameName;
+
+    public InfoManager(String gameNamePass)
+    {
+
+        gameName = gameNamePass;
+
+    }
 
     public void setTeamNumberLoction(EditText loaction)
     {
@@ -136,17 +152,17 @@ public class InfoManager
         counterPlace = 0;
         radioSetPlace = 0;
 
-        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity).create();
-        alertDialog.setTitle("Missing Data");
-        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which){dialog.dismiss();}});
+        AlertDialog alertDialogMissingData = new AlertDialog.Builder(MainActivity).create();
+        alertDialogMissingData.setTitle("Missing Data");
+        alertDialogMissingData.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which){dialog.dismiss();}});
 
         if(teamNumber.equals(""))
         {
 
             teamNumberLocation.clearFocus();
             teamNumberLocation.requestFocus();
-            alertDialog.setMessage("Please Enter a Team Number");
-            alertDialog.show();
+            alertDialogMissingData.setMessage("Please Enter a Team Number");
+            alertDialogMissingData.show();
             return;
 
         }
@@ -156,8 +172,8 @@ public class InfoManager
 
             teamNumberLocation.clearFocus();
             matchNumberLocation.requestFocus();
-            alertDialog.setMessage("Please Enter a Match Number");
-            alertDialog.show();
+            alertDialogMissingData.setMessage("Please Enter a Match Number");
+            alertDialogMissingData.show();
             return;
 
         }
@@ -168,34 +184,34 @@ public class InfoManager
             if(autoStartLocation == loop)
             {
 
-                info = info + "\n" + "Autonomous" + "\n";
+                info = info + "\n" + "----------Autonomous----------" + "\n";
 
             }
 
             if(teleStartLocation == loop)
             {
 
-                info = info + "\n" + "Tele-Op" + "\n";
+                info = info + "\n" + "----------Tele-Op-------------" + "\n";
 
             }
 
             if(endStartLocation == loop)
             {
 
-                info = info + "\n" + "End Game" + "\n";
+                info = info + "\n" + "----------End Game------------" + "\n";
 
             }
 
             if(arrayOrder[loop].equals(counterKey))
             {
 
-                info = info + arrayOutputText[loop] + "\n" + arrayCounter[counterPlace].getStringValue()  + "\n";
+                info = info + arrayOutputText[loop] + " " + arrayCounter[counterPlace].getStringValue()  + "\n";
                 counterPlace = counterPlace + 1;
 
             }else if(arrayOrder[loop].equals(radioSetKey))
             {
 
-                info = info + arrayOutputText[loop] + "\n" + arrayRadioSet[radioSetPlace].getStringValue()  + "\n";
+                info = info + arrayOutputText[loop] + " " + arrayRadioSet[radioSetPlace].getStringValue()  + "\n";
                 radioSetPlace = radioSetPlace + 1;
 
             }else
@@ -208,9 +224,215 @@ public class InfoManager
 
         }
 
-        System.out.println(teamNumber);
-        System.out.println(matchNumber);
-        System.out.println(info);
+        //System.out.println(teamNumber);
+        //System.out.println(matchNumber);
+        //System.out.println(info);
+
+        final File saveFile = new File(Environment.getExternalStorageDirectory().getPath() + File.separator +
+                gameName + File.separator + teamNumber + File.separator +
+                teamNumber + "-" + matchNumber + ".txt");
+
+        switch(this.checkFile(teamNumber, matchNumber, saveFile))
+        {
+
+            //case 1: File Does Not Exists
+            //case 2: File Exists
+            //case -999: Unknown Fail
+
+            case 1:
+
+                if(saveFile.mkdirs() == true)
+                {
+
+                    this.createAndSaveFile(info, saveFile, false);
+
+                }
+                else
+                {
+
+                    System.out.println("File Creation Failed");
+
+                }
+
+                break;
+
+            case 2:
+
+                System.out.println("File Exists");
+
+                AlertDialog alertDialogFileExists = new AlertDialog.Builder(MainActivity).create();
+                alertDialogFileExists.setTitle("File Exists");
+                alertDialogFileExists.setButton(AlertDialog.BUTTON_NEGATIVE, "CANCEL", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
+                {
+
+                    teamNumberLocation.clearFocus();
+                    matchNumberLocation.requestFocus();
+                    dialog.dismiss();
+
+                }});
+
+
+                alertDialogFileExists.setButton(AlertDialog.BUTTON_POSITIVE, "OVERWRITE", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
+                {
+
+                    dialog.dismiss();
+                    //createAndSaveFile(info, saveFile, true);
+
+                }});
+
+                alertDialogFileExists.setMessage("Do You Want to Overwrite This File?");
+                alertDialogFileExists.show();
+
+                break;
+
+            case -999:
+                break;
+
+            default:
+                break;
+
+        }
+
+
+/*
+        //Change File name to variable------------------------
+
+        String filePath;
+        String fileName;
+        File fileOut = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "VelocityVortex" + File.separator);
+        filePath = fileOut.getPath();
+        System.out.println(filePath);
+
+        File test = new File(fileOut.getPath() + File.separator + "test.txt");
+        System.out.println(fileOut.mkdirs());
+
+
+        try
+        {
+
+            boolean temp = test.createNewFile();
+            System.out.println(temp);
+
+
+
+        }catch (IOException e)
+        {
+
+            System.out.println(e);
+
+        }
+
+        try
+        {
+
+
+            FileOutputStream test2 = new FileOutputStream(test);
+            test2.write(info.getBytes());
+            test2.flush();
+            test2.close();
+
+            StringBuilder text = new StringBuilder();
+
+            BufferedReader br = new BufferedReader(new FileReader(test));
+            String line;
+
+            while ((line = br.readLine()) != null)
+            {
+
+                text.append(line + "\n");
+
+            }
+            br.close();
+            System.out.println(text);
+
+
+
+        }catch (IOException e)
+        {
+
+            System.out.println(e);
+
+        }
+
+*/
+
+
+
+    }
+
+    private int checkFile(String teamNumber, String matchNumber, File check)
+    {
+
+        //case 1: File Does Not Exist
+        //case 2: File Exists
+        //case -999: Unknown Fail
+
+        if(check.exists() == false)
+        {
+
+            return 1;
+
+        }
+        else if(check.exists() == true)
+        {
+
+            return 2;
+
+        }
+
+        return -999;
+
+    }
+
+    private boolean createAndSaveFile(String info, File saveFile, boolean delExisting)
+    {
+
+        try
+        {
+
+            if(delExisting == true)
+            {
+
+                if(saveFile.delete() == false)
+                {
+
+                    System.out.println("Existing File Deletion Failed");
+                    return false;
+
+                }
+
+                System.out.println("Deleted Existing File");
+
+            }
+
+            if(saveFile.createNewFile() == true)
+            {
+
+                System.out.println("File Created");
+                FileOutputStream contents = new FileOutputStream(saveFile);
+                contents.write(info.getBytes());
+                contents.flush();
+                contents.close();
+                return true;
+
+            }
+            else
+            {
+
+                System.out.println("File Creation Failed");
+                return false;
+
+            }
+
+        }
+        catch (Exception e)
+        {
+
+            System.out.println(e);
+
+        }
+
+        return false;
 
     }
 

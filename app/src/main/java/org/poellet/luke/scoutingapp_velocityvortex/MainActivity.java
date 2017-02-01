@@ -1,6 +1,10 @@
 package org.poellet.luke.scoutingapp_velocityvortex;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -94,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
         private EditText teamNumber;
         private EditText matchNumber;
 
+        private final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 7518618;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         game_name = getString(R.string.game_name);
         banner_title.setText(game_name);
 
-        infoManager = new InfoManager();
+        infoManager = new InfoManager(game_name);
 
         this.setup();
 
@@ -216,7 +222,6 @@ public class MainActivity extends AppCompatActivity {
         this.setupMatch();
 
         //infoManager
-
             infoManager.startAutoSection();
             infoManager.addCounter(autoCorner, "Particles Scored in Corner Vortex:");
             infoManager.addCounter(autoCenter, "Particles Scored in Center Vortex:");
