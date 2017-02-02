@@ -3,4 +3,5 @@
     <string name="game_name">Velocity Vortex</string>
 
     <string name="version_number">Version Dev 1.0</string>
+    <string name="title_activity_review">ReviewActivity</string>
 </resources>

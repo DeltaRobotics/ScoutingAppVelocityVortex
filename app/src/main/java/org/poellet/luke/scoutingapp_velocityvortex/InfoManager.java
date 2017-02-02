@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Environment;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -248,40 +249,30 @@ public class InfoManager
 
             //Switch Case 1: File Does Not Exists
             //Switch Case 2: File Exists
-            //case -1: Directory Creation Failed
-            //case -999: Unknown Fail
+            //Switch Case -1: Directory Creation Failed
+            //Switch Case -999: Unknown Fail
 
             case 1:
 
                 System.out.println("File Does Not Exist");
                 return 1;
 
-                break;
-
             case 2:
 
                 System.out.println("File Exists");
                 return 2;
 
-                break;
-
             case -1:
 
                 return -1;
-
-                break;
 
             case -999:
 
                 return -999;
 
-                break;
-
             default:
 
                 return -999;
-
-                break;
 
         }
 
@@ -352,73 +343,94 @@ public class InfoManager
 
     }
 
-    public boolean createAndSaveFile(String info, File saveFile, boolean delExisting)
+    public boolean createAndSaveFile(boolean delExisting, Context MainActivity)
     {
 
-        try
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity).create();
+        alertDialog.setTitle("Save Failed");
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which){dialog.dismiss();}});
+
+        if(saveFile == checkFile)
         {
 
-            if(delExisting == true)
+            try
             {
 
-                if(saveFile.delete() == false)
+                if(delExisting == true)
                 {
 
-                    System.out.println("Existing File Deletion Failed");
+                    if(saveFile.delete() == true)
+                    {
+
+                        System.out.println("Deleted Existing File");
+
+                    }
+                    else
+                    {
+
+                        alertDialog.setMessage("Failed to Delete Old File");
+                        alertDialog.show();
+                        System.out.println("Existing File Deletion Failed");
+                        return false;
+
+                    }
+
+
+                }
+
+                if(saveFile.createNewFile() == true)
+                {
+
+                    System.out.println("File Created");
+                    FileOutputStream contents = new FileOutputStream(saveFile);
+                    contents.write(info.getBytes());
+                    contents.flush();
+                    contents.close();
+                    return true;
+
+                }
+                else
+                {
+
+                    alertDialog.setMessage("Failed to Create New File");
+                    alertDialog.show();
+                    System.out.println("File Creation Failed");
                     return false;
 
                 }
 
-                System.out.println("Deleted Existing File");
-
             }
-
-            if(saveFile.createNewFile() == true)
+            catch (Exception e)
             {
 
-                System.out.println("File Created");
-                FileOutputStream contents = new FileOutputStream(saveFile);
-                contents.write(info.getBytes());
-                contents.flush();
-                contents.close();
-                return true;
-
-            }
-            else
-            {
-
-                System.out.println("File Creation Failed");
-                return false;
+                System.out.println(e);
 
             }
 
         }
-        catch (Exception e)
-        {
 
-            System.out.println(e);
-
-        }
+        alertDialog.setMessage("Unable to Verify Save Directory");
+        alertDialog.show();
 
         return false;
 
     }
 
-    private String pullTeamNumber()
+    public String pullTeamNumber()
     {
 
         return teamNumberLocation.getText().toString();
 
     }
 
-    private String pullMatchNumber()
+    public String pullMatchNumber()
     {
 
         return matchNumberLocation.getText().toString();
 
     }
 
-    private void teamNumberClaimFocus()
+    public void teamNumberClaimFocus()
     {
 
         teamNumberLocation.clearFocus();
@@ -426,7 +438,7 @@ public class InfoManager
 
     }
 
-    private void matchNumberClaimFocus()
+    public void matchNumberClaimFocus()
     {
 
         matchNumberLocation.clearFocus();

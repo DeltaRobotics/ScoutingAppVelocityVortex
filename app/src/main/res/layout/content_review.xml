@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_review"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="org.poellet.luke.scoutingapp_velocityvortex.MainActivity"
+    tools:showIn="@layout/activity_review">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/banner_top" />
+
+            <TextView
+                android:text="LOAD ERROR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sub_title_review_match"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/text_sub_title"
+                android:textSize="@dimen/text_sub_title" />
+
+            <TextView
+                android:text="LOAD ERROR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_review_info"
+                android:textSize="@dimen/text_items"
+                android:textColor="@color/text_about_body"
+                android:layout_gravity="center_horizontal" />
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/banner_bottom" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -14,10 +14,16 @@
         android:orderInCategory="100"
         android:title="About"
         app:showAsAction="never" />
+
     <item
         android:id="@+id/action_moveTo_main"
         android:orderInCategory="100"
         android:title="Main(temp)"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_moveTo_review"
+        android:orderInCategory="100"
+        android:title="Review(temp)"
         app:showAsAction="never" />
 
 </menu>

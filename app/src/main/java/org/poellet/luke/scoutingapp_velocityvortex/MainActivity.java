@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
             banner_title.setText("Settings");
             return true;
+
         }
 
         if (id == R.id.action_moveTo_about)
@@ -150,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
             banner_title.setText("About");
             return true;
+
         }
 
         //Temporary-----------------------------------------
@@ -162,6 +164,17 @@ public class MainActivity extends AppCompatActivity {
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
             banner_title.setText(game_name);
             return true;
+
+        }
+        if (id == R.id.action_moveTo_review)
+        {
+
+            setContentView(R.layout.activity_review);
+            this.setupActionBar();
+            banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+            banner_title.setText("Review");
+            return true;
+
         }
 
 
@@ -335,39 +348,113 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void save(View v)
+    {
+
+        AlertDialog alertDialogFileSaveFailed = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialogFileSaveFailed.setTitle("Save Failed");
+        alertDialogFileSaveFailed.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which){dialog.dismiss();}});
+
+        switch(infoManager.createFileInfoAndPath(MainActivity.this))
+        {
+
+            //Return Case 2: File Exists and File Setup Finished
+            //Return Case 1: File Does Not Exist and File Setup Finished
+            //Return Case 0: Do Nothing
+            //Return Case -1: Directory Creation Failed
+            //Return Case -2: Info Creation Failed
+            //Return Case -999: Unknown Fail
+
+            case 2:
+
+                AlertDialog alertDialogFileExists = new AlertDialog.Builder(MainActivity.this).create();
+                alertDialogFileExists.setTitle("File Exists");
+                alertDialogFileExists.setButton(AlertDialog.BUTTON_NEGATIVE, "CANCEL", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
+                {
+
+                    infoManager.matchNumberClaimFocus();
+                    dialog.dismiss();
+
+                }});
+
+
+                alertDialogFileExists.setButton(AlertDialog.BUTTON_POSITIVE, "OVERWRITE", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
+                {
+
+                    if(infoManager.createAndSaveFile(true, MainActivity.this) == true)
+                    {
+
+                        String banner = infoManager.pullTeamNumber() + "-" + infoManager.pullMatchNumber();
+                        setContentView(R.layout.activity_about);
+                        setupActionBar();
+                        banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+                        banner_title.setText(banner);
+
+                    }
+
+                    dialog.dismiss();
+
+                }});
+
+                alertDialogFileExists.setMessage("Do You Want to Overwrite This File?");
+                alertDialogFileExists.show();
+
+                break;
+
+            case 1:
+
+                if(infoManager.createAndSaveFile(false, MainActivity.this) == true)
+                {
+
+                    String banner = infoManager.pullTeamNumber();
+                    setContentView(R.layout.activity_about);
+                    this.setupActionBar();
+                    banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+                    banner_title.setText(banner);
+
+                }
+
+                break;
+
+            case 0:
+                break;
+
+            case -1:
+
+                alertDialogFileSaveFailed.setMessage("Failed to Create Save Directory\nERROR: -1");
+                alertDialogFileSaveFailed.show();
+
+                break;
+
+            case -2:
+
+                alertDialogFileSaveFailed.setMessage("Failed to Collect Match Data\nERROR: -2");
+                alertDialogFileSaveFailed.show();
+
+                break;
+
+            case -999:
+
+                alertDialogFileSaveFailed.setMessage("Failed For Unknown Reason\nERROR: -999");
+                alertDialogFileSaveFailed.show();
+
+                break;
+
+            default:
+
+                alertDialogFileSaveFailed.setMessage("Failed For Unknown Reason\nERROR: Unknown");
+                alertDialogFileSaveFailed.show();
+
+                break;
+
+        }
+
+    }
+
     public void clear(View v)
     {
 
         infoManager.resetValues();
-
-    }
-
-    public void save(View v)
-    {
-
-        infoManager.saveFile(MainActivity.this);
-
-        AlertDialog alertDialogFileExists = new AlertDialog.Builder(MainActivity).create();
-        alertDialogFileExists.setTitle("File Exists");
-        alertDialogFileExists.setButton(AlertDialog.BUTTON_NEGATIVE, "CANCEL", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
-        {
-
-            dialog.dismiss();
-            matchNumberClaimFocus();
-
-        }});
-
-
-        alertDialogFileExists.setButton(AlertDialog.BUTTON_POSITIVE, "OVERWRITE", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
-        {
-
-            dialog.dismiss();
-            createAndSaveFile(info, saveFile, true);
-
-        }});
-
-        alertDialogFileExists.setMessage("Do You Want to Overwrite This File?");
-        alertDialogFileExists.show();
 
     }
 
