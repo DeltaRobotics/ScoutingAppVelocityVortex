@@ -1,12 +1,8 @@
-package org.poellet.luke.scoutingapp_velocityvortex;
+package org.deltaroboticsftc.scoutingapp_velocityvortex;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -190,8 +186,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
     }
-
-
 
     private void setup()
     {
@@ -384,11 +378,20 @@ public class MainActivity extends AppCompatActivity {
                     if(infoManager.createAndSaveFile(true, MainActivity.this) == true)
                     {
 
-                        String banner = infoManager.pullTeamNumber() + "-" + infoManager.pullMatchNumber();
-                        setContentView(R.layout.activity_about);
+                        String banner = infoManager.pullTeamNumber();
+                        String match = infoManager.pullMatchNumber();
+                        String info = infoManager.getInfo();
+
+                        setContentView(R.layout.activity_review);
                         setupActionBar();
                         banner_title = (TextView)findViewById(R.id.text_banner_game_name);
                         banner_title.setText(banner);
+
+                        TextView text_match = (TextView)findViewById(R.id.sub_title_review_match);
+                        text_match.setText("Match: " + match);
+
+                        TextView text_info = (TextView)findViewById(R.id.text_review_info);
+                        text_info.setText(info);
 
                     }
 
@@ -407,10 +410,19 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     String banner = infoManager.pullTeamNumber();
-                    setContentView(R.layout.activity_about);
+                    String match = infoManager.pullMatchNumber();
+                    String info = infoManager.getInfo();
+
+                    setContentView(R.layout.activity_review);
                     this.setupActionBar();
                     banner_title = (TextView)findViewById(R.id.text_banner_game_name);
                     banner_title.setText(banner);
+
+                    TextView text_match = (TextView)findViewById(R.id.sub_title_review_match);
+                    text_match.setText("Match: " + match);
+
+                    TextView text_info = (TextView)findViewById(R.id.text_review_info);
+                    text_info.setText(info);
 
                 }
 
@@ -455,6 +467,19 @@ public class MainActivity extends AppCompatActivity {
     {
 
         infoManager.resetValues();
+
+    }
+
+    public void newMatch(View v)
+    {
+
+        clear(v);
+
+        setContentView(R.layout.activity_main);
+        this.setupActionBar();
+        this.setupMatch();
+        banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+        banner_title.setText(game_name);
 
     }
 

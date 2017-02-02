@@ -6,8 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.poellet.luke.scoutingapp_velocityvortex.MainActivity"
-    tools:showIn="@layout/activity_review">
+    tools:context="org.deltaroboticsftc.scoutingapp_velocityvortex.MainActivity"
+    tools:showIn="@layout/activity_review"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,7 +31,8 @@
                 android:id="@+id/sub_title_review_match"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/text_sub_title"
-                android:textSize="@dimen/text_sub_title" />
+                android:textSize="@dimen/text_sub_title"
+                android:textStyle="bold" />
 
             <TextView
                 android:text="LOAD ERROR"
@@ -40,6 +42,20 @@
                 android:textSize="@dimen/text_items"
                 android:textColor="@color/text_about_body"
                 android:layout_gravity="center_horizontal" />
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/banner_strip" />
+
+            <Button
+                android:text="New Match"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button_new_match"
+                android:textSize="@dimen/text_button"
+                android:textColor="@color/text_button"
+                android:onClick="newMatch" />
 
             <include
                 android:layout_width="match_parent"

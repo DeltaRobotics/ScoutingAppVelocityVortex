@@ -1,4 +1,4 @@
-package org.poellet.luke.scoutingapp_velocityvortex;
+package org.deltaroboticsftc.scoutingapp_velocityvortex;
 
 import org.junit.Test;
 

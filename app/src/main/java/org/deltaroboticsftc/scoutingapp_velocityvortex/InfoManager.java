@@ -1,17 +1,13 @@
-package org.poellet.luke.scoutingapp_velocityvortex;
+package org.deltaroboticsftc.scoutingapp_velocityvortex;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Environment;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
 
 /**
  * Created by Luke Poellet on 1/29/2017.
@@ -160,6 +156,7 @@ public class InfoManager
         String teamNumber = this.pullTeamNumber();
         String matchNumber = this.pullMatchNumber();
         int loop;
+        info = "";
 
         counterPlace = 0;
         radioSetPlace = 0;
@@ -194,21 +191,21 @@ public class InfoManager
             if(autoStartLocation == loop)
             {
 
-                info = info + "\n" + "----------Autonomous----------" + "\n";
+                info = info + "\n" + "---------- Autonomous ----------" + "\n";
 
             }
 
             if(teleStartLocation == loop)
             {
 
-                info = info + "\n" + "----------Tele-Op-------------" + "\n";
+                info = info + "\n" + "---------- Tele-Op -------------" + "\n";
 
             }
 
             if(endStartLocation == loop)
             {
 
-                info = info + "\n" + "----------End Game------------" + "\n";
+                info = info + "\n" + "---------- End Game ------------" + "\n";
 
             }
 
@@ -427,6 +424,13 @@ public class InfoManager
     {
 
         return matchNumberLocation.getText().toString();
+
+    }
+
+    public String getInfo()
+    {
+
+        return info;
 
     }
 
