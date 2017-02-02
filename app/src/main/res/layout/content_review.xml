@@ -41,7 +41,9 @@
                 android:id="@+id/text_review_info"
                 android:textSize="@dimen/text_items"
                 android:textColor="@color/text_about_body"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:fontFamily="sans-serif" />
 
             <include
                 android:layout_width="match_parent"
