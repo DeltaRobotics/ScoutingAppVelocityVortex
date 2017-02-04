@@ -193,10 +193,10 @@ public class MainActivity extends AppCompatActivity {
         //Auto
 
             //Corner Vortex
-                autoCorner = new Counter(0, true, 0, false, 1, 0);
+                autoCorner = new Counter(0, true, 3, true, 1, 0);
 
             //Corner Vortex
-                autoCenter = new Counter(0, true, 0, false, 1, 0);
+                autoCenter = new Counter(0, true, 3, true, 1, 0);
 
             //Capball Moved
                 autoCapballMoved = new RadioSet(true);
