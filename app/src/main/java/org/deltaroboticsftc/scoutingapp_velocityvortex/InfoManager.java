@@ -19,6 +19,8 @@ public class InfoManager
 
     private EditText teamNumberLocation;
     private EditText matchNumberLocation;
+    private String teamNum;
+    private String matchNum;
 
     private int autoStartLocation;
     private int teleStartLocation;
@@ -449,5 +451,6 @@ public class InfoManager
         matchNumberLocation.requestFocus();
 
     }
+
 
 }

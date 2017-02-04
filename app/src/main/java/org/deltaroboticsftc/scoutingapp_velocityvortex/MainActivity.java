@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.graphics.Typeface;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -98,6 +99,13 @@ public class MainActivity extends AppCompatActivity {
 
         private final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 7518618;
 
+
+    //Font
+
+        Typeface customFont;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
             this.setupActionBar();
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
             banner_title.setText("About");
+            applyFontToTitlesAbout();
             return true;
 
         }
@@ -159,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
             this.setupMatch();
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
             banner_title.setText(game_name);
+            applyFontToTitlesMain();
             return true;
 
         }
@@ -231,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
         this.setupMatch();
 
         //infoManager
+
             infoManager.startAutoSection();
             infoManager.addCounter(autoCorner, "Particles Scored in Corner Vortex:");
             infoManager.addCounter(autoCenter, "Particles Scored in Center Vortex:");
@@ -246,6 +257,15 @@ public class MainActivity extends AppCompatActivity {
 
             infoManager.startEndSection();
             infoManager.addRadioSet(endCapballStatus, "Capball Scored:");
+
+        //Font
+
+        changeFont("SFTransRobotics");
+        applyFontToTitlesMain();
+
+
+
+
 
     }
 
@@ -480,6 +500,45 @@ public class MainActivity extends AppCompatActivity {
         this.setupMatch();
         banner_title = (TextView)findViewById(R.id.text_banner_game_name);
         banner_title.setText(game_name);
+
+    }
+
+    public void changeFont(String font)
+    {
+        customFont = Typeface.createFromAsset(getAssets(), "fonts/" + font + ".ttf");
+    }
+
+    public void applyFontToTitlesMain()
+    {
+        TextView text_banner_game_name = (TextView) findViewById(R.id.text_banner_game_name);
+        TextView title_auto = (TextView) findViewById(R.id.title_auto);
+        TextView title_tele = (TextView) findViewById(R.id.title_tele);
+        TextView title_end = (TextView) findViewById(R.id.title_end);
+        text_banner_game_name.setTypeface(customFont);
+        title_auto.setTypeface(customFont);
+        title_tele.setTypeface(customFont);
+        title_end.setTypeface(customFont);
+
+
+    }
+
+    public void applyFontToTitlesAbout()
+    {
+        TextView sub_title_about_body_readableFile = (TextView) findViewById(R.id.sub_title_about_body_readableFile);
+        TextView sub_title_about_body_ratingSys = (TextView) findViewById(R.id.sub_title_about_body_ratingSys);
+        TextView sub_title_about_body_csvFile = (TextView) findViewById(R.id.sub_title_about_body_csvFile);
+        TextView sub_title_about_body_aboutDelta = (TextView) findViewById(R.id.sub_title_about_body_aboutDelta);
+        TextView text_banner_game_name = (TextView) findViewById(R.id.text_banner_game_name);
+        TextView sub_title_about_body_theApp = (TextView) findViewById(R.id.sub_title_about_body_theApp);
+        TextView sub_title_about_body_useApp = (TextView) findViewById(R.id.sub_title_about_body_useApp);
+        text_banner_game_name.setTypeface(customFont);
+        sub_title_about_body_readableFile.setTypeface(customFont);
+        sub_title_about_body_aboutDelta.setTypeface(customFont);
+        sub_title_about_body_csvFile.setTypeface(customFont);
+        sub_title_about_body_ratingSys.setTypeface(customFont);
+        sub_title_about_body_theApp.setTypeface(customFont);
+        sub_title_about_body_useApp.setTypeface(customFont);
+
 
     }
 

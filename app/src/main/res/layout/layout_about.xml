@@ -7,7 +7,7 @@
         android:text="What Is This App"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/sub_title_about_theApp"
+        android:id="@+id/sub_title_about_body_theApp"
         android:textSize="22sp"
         android:textColor="@color/text_sub_title"
         android:textStyle="bold" />
@@ -24,7 +24,7 @@
         android:text="How To Use This App"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/text_sub_title_about_useApp"
+        android:id="@+id/sub_title_about_body_useApp"
         android:textSize="@dimen/text_sub_title"
         android:textColor="@color/text_sub_title"
         android:textStyle="bold" />
