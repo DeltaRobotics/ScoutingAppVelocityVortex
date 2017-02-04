@@ -12,4 +12,20 @@
         android:textColor="@color/text_title"
         android:layout_gravity="center_horizontal"
         />
+
+    <TextView
+        android:text="File Output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_title_setting_outputFile"
+        android:textSize="22sp"
+        android:textColor="@color/text_sub_title"
+        android:textStyle="normal|bold" />
+
+    <CheckBox
+        android:text="CSV File Output For Rating System"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/box_setting_outputFile"
+        android:textSize="18sp" />
 </LinearLayout>

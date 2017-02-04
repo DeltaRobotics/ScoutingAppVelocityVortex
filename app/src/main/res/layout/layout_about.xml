@@ -47,7 +47,7 @@
         android:id="@+id/sub_title_about_body_aboutDelta" />
 
     <TextView
-        android:text="We are a 2nd year independent FTC Robotics team that strives to connect with others in more ways than just robotics.\n"
+        android:text='We are a 2nd year independent FTC Robotics team and out motto is "Creating change by connecting with others".\n'
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -89,7 +89,7 @@
         android:textColor="@color/text_about_body" />
 
     <TextView
-        android:text="Online Rating System"
+        android:text="Rating System"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sub_title_about_body_ratingSys"
