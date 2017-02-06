@@ -4,16 +4,6 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="Settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/title_settings"
-        android:textSize="40sp"
-        android:textColor="@color/text_title"
-        android:layout_gravity="center_horizontal"
-        />
-
-    <TextView
         android:text="File Output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

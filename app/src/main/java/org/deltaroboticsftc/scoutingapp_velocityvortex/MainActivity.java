@@ -2,6 +2,7 @@ package org.deltaroboticsftc.scoutingapp_velocityvortex;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,7 +12,6 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.graphics.Typeface;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
         private EditText teamNumber;
         private EditText matchNumber;
 
+        public Typeface face;
+
         private final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 7518618;
 
 
@@ -110,7 +112,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setupActionBar();
+        this.setupActionBar();
+
+        face = Typeface.createFromAsset(getAssets(),"fonts/SFTransRobotics.ttf");
 
         banner_title = (TextView)findViewById(R.id.text_banner_game_name);
         game_name = getString(R.string.game_name);
@@ -119,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         infoManager = new InfoManager(game_name);
 
         this.setup();
+        Settings settings = new Settings();
 
     }
 
@@ -228,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
 
             //Beacons Pressed
                 teleBeaconsPressed = new Counter(0, true, 0, false, 1, 0);
-        
+
             //Beacons Scored
                 teleBeaconsScored = new RadioSet(false);
 
@@ -505,11 +510,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeFont(String font)
     {
+
         customFont = Typeface.createFromAsset(getAssets(), "fonts/" + font + ".ttf");
+
     }
 
     public void applyFontToTitlesMain()
     {
+
         TextView text_banner_game_name = (TextView) findViewById(R.id.text_banner_game_name);
         TextView title_auto = (TextView) findViewById(R.id.title_auto);
         TextView title_tele = (TextView) findViewById(R.id.title_tele);
@@ -519,11 +527,11 @@ public class MainActivity extends AppCompatActivity {
         title_tele.setTypeface(customFont);
         title_end.setTypeface(customFont);
 
-
     }
 
     public void applyFontToTitlesAbout()
     {
+
         TextView sub_title_about_body_readableFile = (TextView) findViewById(R.id.sub_title_about_body_readableFile);
         TextView sub_title_about_body_ratingSys = (TextView) findViewById(R.id.sub_title_about_body_ratingSys);
         TextView sub_title_about_body_csvFile = (TextView) findViewById(R.id.sub_title_about_body_csvFile);
@@ -538,7 +546,6 @@ public class MainActivity extends AppCompatActivity {
         sub_title_about_body_ratingSys.setTypeface(customFont);
         sub_title_about_body_theApp.setTypeface(customFont);
         sub_title_about_body_useApp.setTypeface(customFont);
-
 
     }
 

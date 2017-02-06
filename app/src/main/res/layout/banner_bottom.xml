@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -9,14 +10,13 @@
         layout="@layout/banner_strip" />
 
     <TextView
-        android:text="Image"
-        android:layout_width="wrap_content"
+        android:text="DRAWABLE FILE"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/strip_banner_bottom"
-        android:id="@+id/text_banner_game_name"
+        android:id="@+id/textView"
+        android:textAlignment="center"
         android:textSize="@dimen/text_title"
-        android:textColor="@color/text_title"
         android:textStyle="bold"
-        android:layout_gravity="center_horizontal" />
+        android:textColor="@color/text_title" />
+
 </LinearLayout>
