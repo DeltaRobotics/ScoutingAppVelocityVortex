@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
         private EditText teamNumber;
         private EditText matchNumber;
 
+        private Settings settings;
+
         public Typeface face;
 
         private final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 7518618;
@@ -123,7 +125,8 @@ public class MainActivity extends AppCompatActivity {
         infoManager = new InfoManager(game_name);
 
         this.setup();
-        Settings settings = new Settings();
+
+        settings = new Settings();
 
     }
 

@@ -1,21 +1,21 @@
 package org.deltaroboticsftc.scoutingapp_velocityvortex;
 
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
-
 import java.io.File;
+import java.io.FileOutputStream;
 
 /**
  * Created by Luke Poellet on 2/6/2017.
  */
 
-public class Settings extends AppCompatActivity
+public class Settings
 {
 
     //Settings Save System
-        private String gameName;
         private File settingsDir;
+        private File settingsFile;
+        private StringBuilder saveInfo = new StringBuilder();
 
     //csvFileSave
         private boolean csvFileSave = true;
@@ -24,18 +24,50 @@ public class Settings extends AppCompatActivity
     public Settings()
     {
 
-        //gameName = getString(R.string.game_name);
-
-        settingsDir = new File(Environment.getDataDirectory() + File.separator + "org.deltaroboticsftc.scoutingapp_" + File.separator);
+        settingsDir = new File(Environment.getDataDirectory() + File.separator + "org.deltaroboticsftc.scoutingapp" + File.separator);
         System.out.println(settingsDir.getPath());
 
+        settingsFile = new File(settingsDir.getPath() + "Settings.txt");
+        System.out.println(settingsFile.getPath());
+        System.out.println(settingsFile.getName());
+
+        try
+        {
+
+            if(settingsFile.exists() == false)
+            {
+
+                settingsFile.mkdirs();
+
+                this.setSaveInfo();
+
+                FileOutputStream contents = new FileOutputStream(settingsFile);
+                contents.write(saveInfo.toString().getBytes());
+                contents.flush();
+                contents.close();
+
+            }
+
+        }catch (Exception e)
+        {
+
+            System.out.println(e);
+
+        }
+
     }
 
-    private void setupIds()
+
+    private void setSaveInfo()
     {
 
-        //csvFileSaveLocation = (CheckBox)findViewById(R.id.box_setting_outputFile);
+        saveInfo.delete(0, saveInfo.length());
+
+        saveInfo.append("Delta Robotics Scouting App Settings\n");
+
+        saveInfo.append("Save CSV File:" + csvFileSave + "\n");
 
     }
+
 
 }

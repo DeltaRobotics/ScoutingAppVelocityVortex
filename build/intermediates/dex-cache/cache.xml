@@ -3,138 +3,138 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Public\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_26c8f7cc52542bf9a6d769ce122b82c65c6fe103\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="21910ef73b8e4b1d598f85cf86e16046326dfc15">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_1304c3df09b4bb9a169b97b56c57e02f0b46f52e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_c79266fc86e2a5adaaea1e06f2bf33dd8d3b4518\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_9e3ae1c075c28ad7a2e65e527f0597517e68c419\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="fd71873c0d99feef29c48b18154bea4dd06d9d1e">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_961815a1046992d922ac37476f469feceddf387e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_f4f939d140d18c2b1139c010945efedfe9dfd110\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_6b0be9b52841e8312cc7022715b74a6c8dbee9b1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_8d0ec001d3038976a64347aeff5a65548fb34396\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_7320b9071f5d92f1f2a070f67737a3ef50e023ba\classes.dex" />
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_8fe1a231f44fd48560bd9693c54af82e81694ab2\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_8b14bf04c13c4a583d6d7a3995bfa47f6f2337bb\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_9249a8b62a94829f794b2a0eaf1370f4856598f1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_5e69fa73f4fb5350b887137ba0508963f162e5cd\classes.dex" />
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_e1a750a71b3313f08e067d5b4a64c3131b34502b\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="752b27340902165f95eae99985db15a76a467b49">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_e5fd417439367e3bdd39f7bb1268b981661043a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="d38084015027549951cbaea5d5f6fb795cc81151">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_5002acdacfb971bc64188734105ebf9edde25f2d\classes.dex" />
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.0_30e0be14d7577fd1bbe49ff835ed077f638f3235\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_3f5d0ae3b94657fbc907d37cdf9caa6ecab939c2\classes.dex" />
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_170d4650c579b0b7a990d99455a447819ad5737c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_d29b70d0562c1f95ec6c258e9f9fef235c9bba7c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_e760a9b99f04b20f1fea4311e4a23b1640f992d7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0c0ab296411c56a671bc3f51ad36a160b1abeda1">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_fd82e00a2174cf53d9b25b3cb2e1d5fde2a49e4d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="C:\Users\lupoellet\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_e4af97f5428a4d7a6aeb6dced2b65fffcac60f88\classes.dex" />
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_b8ccc3402001330278c16d927a67800913496122\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_e1d4dac73a94175eb3b1c7c23ae50021042b6330\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_0a77dbed365fe257d2893246f4e2ec09ad6fce48\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.0_cee2be57f13a37dae63d7cd2a43703170caef09d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\LMTV\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_54618260c9f278116888eb25e794304bb0ab23b3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_2b80fc39426dff228ffaf6d8133867448851b415\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="C:\Users\LMTV\Desktop\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_5c600c63cdce73a9d88ef0a73dd4bd93685e161c\classes.dex" />
     </item>
 
 </items>
