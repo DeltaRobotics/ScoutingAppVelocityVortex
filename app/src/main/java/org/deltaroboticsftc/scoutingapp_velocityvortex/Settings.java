@@ -18,7 +18,7 @@ public class Settings
         private File settingsFile;
         private StringBuilder saveInfo = new StringBuilder();
         private InfoManager infoManager;
-        private final String fileStartText = "Delta Robotics Scouting App Settings\n";
+        private final String fileStartText = "Delta Robotics Scouting App Settings";
 
     //csvFileSave
         private final String fileCSVText = "Save CSV File:";
@@ -74,7 +74,7 @@ public class Settings
 
         saveInfo.delete(0, saveInfo.length());
 
-        saveInfo.append(fileStartText);
+        saveInfo.append(fileStartText + "\n");
 
         saveInfo.append(fileCSVText + csvFileSaveDefault + "\n");
         csvFileSave = csvFileSaveDefault;
@@ -86,7 +86,7 @@ public class Settings
 
         saveInfo.delete(0, saveInfo.length());
 
-        saveInfo.append(fileStartText);
+        saveInfo.append(fileStartText  + "\n");
 
         saveInfo.append(fileCSVText + csvFileSave + "\n");
 
@@ -97,7 +97,20 @@ public class Settings
     private void saveSettings()
     {
 
+        try
+        {
 
+            FileOutputStream contents = new FileOutputStream(settingsFile);
+            contents.write(saveInfo.toString().getBytes());
+            contents.flush();
+            contents.close();
+
+        }catch (Exception e)
+        {
+
+            System.out.println(e);
+
+        }
 
     }
 
@@ -116,23 +129,24 @@ public class Settings
             {
 
                 this.createDefaultSaveInfo();
-                System.out.println("Settings File Incorrectly Setup");
+                System.out.println("Settings File Incorrectly Setup: " + line + " != " + fileStartText);
                 return;
 
             }
 
             line = scan.nextLine();
-            settingDivider = line.indexOf("|");
-            if(line.substring(0, settingDivider).equals(fileCSVText) == true)
+            settingDivider = line.indexOf(":");
+            System.out.println("Index of \":\") " + settingDivider + ", In) " + line);
+            if(line.substring(0, settingDivider + 1).equals(fileCSVText) == true)
             {
 
-                if(line.substring(settingDivider).equals("true") == true)
+                if(line.substring(settingDivider + 1).equals("true") == true)
                 {
 
                     csvFileSave = true;
 
                 }
-                else if (line.substring(settingDivider).equals("false") == true)
+                else if (line.substring(settingDivider + 1).equals("false") == true)
                 {
 
                     csvFileSave = false;
@@ -145,20 +159,19 @@ public class Settings
 
                 }
 
-                csvFileSaveLocation.setChecked(csvFileSave);
+                System.out.println("csvFileSave Set to: " + csvFileSave);
 
             }
             else
             {
 
                 this.createDefaultSaveInfo();
-                System.out.println("Settings File Incorrectly Setup");
+                System.out.println("Settings File Incorrectly Setup: " + line + " != " + fileCSVText);
                 return;
 
             }
 
             scan.close();
-            this.createSaveInfo();
 
         }catch (Exception e)
         {
@@ -169,10 +182,32 @@ public class Settings
 
     }
 
+    public void pageLoad()
+    {
+
+        csvFileSaveLocation.setChecked(csvFileSave);
+
+    }
+
     public void setCsvFileSaveLocation(CheckBox location)
     {
 
         csvFileSaveLocation = location;
+
+    }
+
+    public void setCsvFileSave()
+    {
+
+        csvFileSave = csvFileSaveLocation.isChecked();
+        this.createSaveInfo();
+
+    }
+
+    public boolean getCsvFileSave()
+    {
+
+        return csvFileSave;
 
     }
 

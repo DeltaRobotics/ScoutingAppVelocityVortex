@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -98,10 +99,18 @@ public class MainActivity extends AppCompatActivity {
         private EditText matchNumber;
 
         private Settings settings;
+        private CheckBox csvFileSaveLocation;
+
+        private void setupSettings()
+        {
+
+            csvFileSaveLocation = (CheckBox)findViewById(R.id.box_setting_outputFile);
+            settings.setCsvFileSaveLocation(csvFileSaveLocation);
+
+        }
+        public void setCsvFileSave(View v) {settings.setCsvFileSave();}
 
         public Typeface face;
-
-        private final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 7518618;
 
 
     //Font
@@ -126,8 +135,6 @@ public class MainActivity extends AppCompatActivity {
 
         this.setup();
 
-        settings = new Settings(infoManager);
-
     }
 
     @Override
@@ -151,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
             this.setupActionBar();
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
             banner_title.setText("Settings");
+            this.setupSettings();
+            settings.pageLoad();
             return true;
 
         }
@@ -248,6 +257,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.setupMatch();
 
+
         //infoManager
 
             infoManager.startAutoSection();
@@ -265,6 +275,11 @@ public class MainActivity extends AppCompatActivity {
 
             infoManager.startEndSection();
             infoManager.addRadioSet(endCapballStatus, "Capball Scored:");
+
+
+        //Settings
+
+            settings = new Settings(infoManager);
 
         //Font
 
@@ -403,7 +418,7 @@ public class MainActivity extends AppCompatActivity {
                 alertDialogFileExists.setButton(AlertDialog.BUTTON_POSITIVE, "OVERWRITE", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which)
                 {
 
-                    if(infoManager.createAndSaveFile(true, MainActivity.this) == true)
+                    if(infoManager.createAndSaveFile(true, MainActivity.this, settings.getCsvFileSave()) == true)
                     {
 
                         String banner = infoManager.pullTeamNumber();
@@ -434,7 +449,7 @@ public class MainActivity extends AppCompatActivity {
 
             case 1:
 
-                if(infoManager.createAndSaveFile(false, MainActivity.this) == true)
+                if(infoManager.createAndSaveFile(false, MainActivity.this, settings.getCsvFileSave()) == true)
                 {
 
                     String banner = infoManager.pullTeamNumber();

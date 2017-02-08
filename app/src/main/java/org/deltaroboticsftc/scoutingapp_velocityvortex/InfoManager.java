@@ -342,7 +342,80 @@ public class InfoManager
 
     }
 
-    public boolean createAndSaveFile(boolean delExisting, Context MainActivity)
+    public boolean createAndSaveFile(boolean delExisting, Context MainActivity, boolean saveDataFile)
+    {
+
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity).create();
+        alertDialog.setTitle("Save Failed");
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which){dialog.dismiss();}});
+
+        if(saveFile == checkFile)
+        {
+
+            try
+            {
+
+                if(delExisting == true)
+                {
+
+                    if(saveFile.delete() == true)
+                    {
+
+                        System.out.println("Deleted Existing File");
+
+                    }
+                    else
+                    {
+
+                        alertDialog.setMessage("Failed to Delete Old File");
+                        alertDialog.show();
+                        System.out.println("Existing File Deletion Failed");
+                        return false;
+
+                    }
+
+
+                }
+
+                if(saveFile.createNewFile() == true)
+                {
+
+                    System.out.println("File Created");
+                    FileOutputStream contents = new FileOutputStream(saveFile);
+                    contents.write(info.getBytes());
+                    contents.flush();
+                    contents.close();
+                    return true;
+
+                }
+                else
+                {
+
+                    alertDialog.setMessage("Failed to Create New File");
+                    alertDialog.show();
+                    System.out.println("File Creation Failed");
+                    return false;
+
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                System.out.println(e);
+
+            }
+
+        }
+
+        alertDialog.setMessage("Unable to Verify Save Directory");
+        alertDialog.show();
+
+        return false;
+
+    }
+
+    public boolean createAndSaveDataFile(boolean delExisting, Context MainActivity)
     {
 
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity).create();
