@@ -452,5 +452,12 @@ public class InfoManager
 
     }
 
+    public String getGameName()
+    {
+
+        return gameName;
+
+    }
+
 
 }

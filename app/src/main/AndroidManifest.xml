@@ -3,7 +3,6 @@
     package="org.deltaroboticsftc.scoutingapp_velocityvortex">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
         android:allowBackup="true"

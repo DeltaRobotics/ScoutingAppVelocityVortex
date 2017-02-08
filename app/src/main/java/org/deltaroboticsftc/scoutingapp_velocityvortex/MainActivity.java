@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.setup();
 
-        settings = new Settings();
+        settings = new Settings(infoManager);
 
     }
 
