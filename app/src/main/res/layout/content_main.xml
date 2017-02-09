@@ -79,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/title_tele"
-                    android:textSize="40sp"
+                    android:textSize="@dimen/text_title"
                     android:layout_gravity="center_horizontal"
                     android:textStyle="normal|bold"
                     android:textColor="@color/text_title" />
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/title_end"
-                    android:textSize="40sp"
+                    android:textSize="@dimen/text_title"
                     android:textColor="@color/text_title"
                     android:textStyle="normal|bold"
                     android:layout_gravity="center_horizontal"

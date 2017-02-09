@@ -19,6 +19,7 @@ public class RadioSet
     private boolean specialTextError = false;
 
     private int startChecked;
+    private int curChecked;
 
     public RadioSet(boolean hasSpecialTextPass)
     {
@@ -53,7 +54,7 @@ public class RadioSet
         {
 
             startChecked = arrayLength;
-            this.resetToDefault();
+            buttonsArray[startChecked].setChecked(true);
 
         }
 
@@ -74,7 +75,7 @@ public class RadioSet
         {
 
             startChecked = arrayLength;
-            this.resetToDefault();
+            buttonsArray[startChecked].setChecked(true);
 
         }
 
@@ -151,6 +152,39 @@ public class RadioSet
     {
 
         buttonsArray[startChecked].setChecked(true);
+        curChecked = startChecked;
+
+    }
+
+    public void storeCurChecked()
+    {
+
+        curChecked = this.getChecked();
+
+    }
+
+    public void setChecked(int set)
+    {
+
+        //If set = -1 check will be set to curChecked
+
+        if(set == -1)
+        {
+
+            buttonsArray[curChecked].setChecked(true);
+            return;
+
+        }
+
+        if(0 <= set && set < arrayLength)
+        {
+
+            buttonsArray[set].setChecked(true);
+            return;
+
+        }
+
+        this.resetToDefault();
 
     }
 

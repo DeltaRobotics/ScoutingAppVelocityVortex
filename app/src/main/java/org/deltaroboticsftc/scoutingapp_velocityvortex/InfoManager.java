@@ -130,8 +130,10 @@ public class InfoManager
         int loop;
 
         teamNumberLocation.setText(null);
+        teamNum = null;
         teamNumberLocation.clearFocus();
         matchNumberLocation.setText(null);
+        matchNum = null;
         matchNumberLocation.clearFocus();
 
         for(loop = 0; loop < counterNext; loop++)
@@ -580,12 +582,29 @@ public class InfoManager
 
         return teamNumberLocation.getText().toString();
 
+
     }
 
     public String pullMatchNumber()
     {
 
         return matchNumberLocation.getText().toString();
+
+    }
+
+    public void storeMatchInfo()
+    {
+
+        teamNum = this.pullTeamNumber();
+        matchNum = this.pullMatchNumber();
+
+    }
+
+    public void editMatch()
+    {
+
+        teamNumberLocation.setText(teamNum);
+        matchNumberLocation.setText(matchNum);
 
     }
 

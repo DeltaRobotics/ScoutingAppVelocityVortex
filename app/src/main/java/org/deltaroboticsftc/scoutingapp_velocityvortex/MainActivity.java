@@ -34,12 +34,14 @@ public class MainActivity extends AppCompatActivity {
             private RadioSet autoCapballMoved;
             private RadioButton autoCapballMoved_No;
             private RadioButton autoCapballMoved_Yes;
+            public void storeAutoCapballMoved(View v) {autoCapballMoved.storeCurChecked();}
 
         //Beacons Scored
             private RadioSet autoBeaconsScored;
             private RadioButton autoBeaconsScored_0;
             private RadioButton autoBeaconsScored_1;
             private RadioButton autoBeaconsScored_2;
+            public void  storeAutoBeaconsScored(View v) {autoBeaconsScored.storeCurChecked();}
 
         //Parking
             private RadioSet autoParking;
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             private RadioButton autoParking_corner;
             private RadioButton autoParking_center_par;
             private RadioButton autoParking_center;
+            public void  storeAutoParking(View v) {autoParking.storeCurChecked();}
 
 
     //Tele
@@ -77,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             private RadioButton teleBeaconsScored_2;
             private RadioButton teleBeaconsScored_3;
             private RadioButton teleBeaconsScored_4;
+            public void  storeTeleBeaconsScored(View v) {teleBeaconsScored.storeCurChecked();}
 
 
     //End
@@ -87,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
             private RadioButton endCapballStatus_low;
             private RadioButton endCapballStatus_high;
             private RadioButton endCapballStatus_capped;
+            public void  storeEndCapballStatus(View v) {endCapballStatus.storeCurChecked();}
 
 
     //Setup System Controls------DON'T CHANGE----------
@@ -152,14 +157,45 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        if (id == R.id.action_moveTo_main_edit)
+        {
+
+            setContentView(R.layout.activity_main);
+            this.setupActionBar();
+            this.setupMatch();
+            infoManager.editMatch();
+            banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+            banner_title.setText(game_name);
+            this.applyFontToTitlesMain();
+            return true;
+
+        }
+
+        if (id == R.id.action_moveTo_main_new)
+        {
+
+            infoManager.resetValues();
+            setContentView(R.layout.activity_main);
+            this.setupActionBar();
+            this.setupMatch();
+            banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+            banner_title.setText(game_name);
+            this.applyFontToTitlesMain();
+            return true;
+
+        }
+
         if (id == R.id.action_moveTo_settings)
         {
+
+            infoManager.storeMatchInfo();
             setContentView(R.layout.activity_settings);
             this.setupActionBar();
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
             banner_title.setText("Settings");
             this.setupSettings();
             settings.pageLoad();
+            this.applyFontToTitlesSettings();
             return true;
 
         }
@@ -167,31 +203,21 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_moveTo_about)
         {
 
+            infoManager.storeMatchInfo();
             setContentView(R.layout.activity_about);
             this.setupActionBar();
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
             banner_title.setText("About");
-            applyFontToTitlesAbout();
+            this.applyFontToTitlesAbout();
             return true;
 
         }
 
         //Temporary-----------------------------------------
-        if (id == R.id.action_moveTo_main)
-        {
-
-            setContentView(R.layout.activity_main);
-            this.setupActionBar();
-            this.setupMatch();
-            banner_title = (TextView)findViewById(R.id.text_banner_game_name);
-            banner_title.setText(game_name);
-            applyFontToTitlesMain();
-            return true;
-
-        }
         if (id == R.id.action_moveTo_review)
         {
 
+            infoManager.storeMatchInfo();
             setContentView(R.layout.activity_review);
             this.setupActionBar();
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
@@ -312,6 +338,7 @@ public class MainActivity extends AppCompatActivity {
                 autoCapballMoved.addRadioButtonWithText(autoCapballMoved_No, "No", true);
                 autoCapballMoved_Yes = (RadioButton)findViewById(R.id.radio_auto_cbmoved_yes);
                 autoCapballMoved.addRadioButtonWithText(autoCapballMoved_Yes, "Yes", false);
+                autoCapballMoved.setChecked(-1);
 
             //Beacons Scored
                 autoBeaconsScored.resetButtonsArray();
@@ -321,6 +348,7 @@ public class MainActivity extends AppCompatActivity {
                 autoBeaconsScored.addRadioButton(autoBeaconsScored_1, false);
                 autoBeaconsScored_2 = (RadioButton)findViewById(R.id.radio_auto_beacons_2);
                 autoBeaconsScored.addRadioButton(autoBeaconsScored_2, false);
+                autoBeaconsScored.setChecked(-1);
 
             //Parking
                 autoParking.resetButtonsArray();
@@ -334,6 +362,7 @@ public class MainActivity extends AppCompatActivity {
                 autoParking.addRadioButtonWithText(autoParking_center_par, "Partial Center", false);
                 autoParking_center = (RadioButton)findViewById(R.id.radio_auto_parking_center);
                 autoParking.addRadioButtonWithText(autoParking_center, "Center", false);
+                autoParking.setChecked(-1);
 
 
         //Tele
@@ -362,6 +391,7 @@ public class MainActivity extends AppCompatActivity {
                 teleBeaconsScored.addRadioButton(teleBeaconsScored_3, false);
                 teleBeaconsScored_4 = (RadioButton)findViewById(R.id.radio_tele_beacons_4);
                 teleBeaconsScored.addRadioButton(teleBeaconsScored_4, false);
+                teleBeaconsScored.setChecked(-1);
 
 
         //End
@@ -376,6 +406,7 @@ public class MainActivity extends AppCompatActivity {
                 endCapballStatus.addRadioButtonWithText(endCapballStatus_high, "High Goal", false);
                 endCapballStatus_capped = (RadioButton)findViewById(R.id.radio_end_capball_capped);
                 endCapballStatus.addRadioButtonWithText(endCapballStatus_capped, "Capped", false);
+                endCapballStatus.setChecked(-1);
 
 
         //infoManager--DON'T CHANGE--
@@ -388,6 +419,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void save(View v)
     {
+
+        infoManager.storeMatchInfo();
 
         AlertDialog alertDialogFileSaveFailed = new AlertDialog.Builder(MainActivity.this).create();
         alertDialogFileSaveFailed.setTitle("Save Failed");
@@ -517,13 +550,26 @@ public class MainActivity extends AppCompatActivity {
     public void newMatch(View v)
     {
 
-        clear(v);
-
+        this.clear(v);
         setContentView(R.layout.activity_main);
         this.setupActionBar();
         this.setupMatch();
         banner_title = (TextView)findViewById(R.id.text_banner_game_name);
         banner_title.setText(game_name);
+        this.applyFontToTitlesMain();
+
+    }
+
+    public void editMatch(View v)
+    {
+
+        setContentView(R.layout.activity_main);
+        this.setupActionBar();
+        this.setupMatch();
+        infoManager.editMatch();
+        banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+        banner_title.setText(game_name);
+        this.applyFontToTitlesMain();
 
     }
 
@@ -538,33 +584,53 @@ public class MainActivity extends AppCompatActivity {
     {
 
         TextView text_banner_game_name = (TextView) findViewById(R.id.text_banner_game_name);
-        TextView title_auto = (TextView) findViewById(R.id.title_auto);
-        TextView title_tele = (TextView) findViewById(R.id.title_tele);
-        TextView title_end = (TextView) findViewById(R.id.title_end);
         text_banner_game_name.setTypeface(customFont);
+
+        TextView title_auto = (TextView) findViewById(R.id.title_auto);
         title_auto.setTypeface(customFont);
+
+        TextView title_tele = (TextView) findViewById(R.id.title_tele);
         title_tele.setTypeface(customFont);
+
+        TextView title_end = (TextView) findViewById(R.id.title_end);
         title_end.setTypeface(customFont);
+
+    }
+
+    public void applyFontToTitlesSettings()
+    {
+
+        TextView text_banner_game_name = (TextView) findViewById(R.id.text_banner_game_name);
+        text_banner_game_name.setTypeface(customFont);
+
+        TextView sub_title_setting_outputFile = (TextView) findViewById(R.id.sub_title_setting_outputFile);
+        sub_title_setting_outputFile.setTypeface(customFont);
 
     }
 
     public void applyFontToTitlesAbout()
     {
 
-        TextView sub_title_about_body_readableFile = (TextView) findViewById(R.id.sub_title_about_body_readableFile);
-        TextView sub_title_about_body_ratingSys = (TextView) findViewById(R.id.sub_title_about_body_ratingSys);
-        TextView sub_title_about_body_csvFile = (TextView) findViewById(R.id.sub_title_about_body_csvFile);
-        TextView sub_title_about_body_aboutDelta = (TextView) findViewById(R.id.sub_title_about_body_aboutDelta);
         TextView text_banner_game_name = (TextView) findViewById(R.id.text_banner_game_name);
-        TextView sub_title_about_body_theApp = (TextView) findViewById(R.id.sub_title_about_body_theApp);
-        TextView sub_title_about_body_useApp = (TextView) findViewById(R.id.sub_title_about_body_useApp);
         text_banner_game_name.setTypeface(customFont);
-        sub_title_about_body_readableFile.setTypeface(customFont);
-        sub_title_about_body_aboutDelta.setTypeface(customFont);
-        sub_title_about_body_csvFile.setTypeface(customFont);
-        sub_title_about_body_ratingSys.setTypeface(customFont);
+
+        TextView sub_title_about_body_theApp = (TextView) findViewById(R.id.sub_title_about_body_theApp);
         sub_title_about_body_theApp.setTypeface(customFont);
+
+        TextView sub_title_about_body_useApp = (TextView) findViewById(R.id.sub_title_about_body_useApp);
         sub_title_about_body_useApp.setTypeface(customFont);
+
+        TextView sub_title_about_body_aboutDelta = (TextView) findViewById(R.id.sub_title_about_body_aboutDelta);
+        sub_title_about_body_aboutDelta.setTypeface(customFont);
+
+        TextView sub_title_about_body_readableFile = (TextView) findViewById(R.id.sub_title_about_body_readableFile);
+        sub_title_about_body_readableFile.setTypeface(customFont);
+
+        TextView sub_title_about_body_csvFile = (TextView) findViewById(R.id.sub_title_about_body_csvFile);
+        sub_title_about_body_csvFile.setTypeface(customFont);
+
+        TextView sub_title_about_body_ratingSys = (TextView) findViewById(R.id.sub_title_about_body_ratingSys);
+        sub_title_about_body_ratingSys.setTypeface(customFont);
 
     }
 

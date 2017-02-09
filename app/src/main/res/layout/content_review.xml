@@ -50,14 +50,31 @@
                 android:layout_height="wrap_content"
                 layout="@layout/banner_strip" />
 
-            <Button
-                android:text="New Match"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button_new_match"
-                android:textSize="@dimen/text_button"
-                android:textColor="@color/text_button"
-                android:onClick="newMatch" />
+                android:layout_height="match_parent">
+
+                <Button
+                    android:text="New Match"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_new_match"
+                    android:textSize="@dimen/text_button"
+                    android:textColor="@color/text_button"
+                    android:onClick="newMatch"
+                    android:layout_weight="1"
+                    android:layout_width="0dp" />
+
+                <Button
+                    android:text="Edit Match"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_edit_match"
+                    android:textSize="@dimen/text_button"
+                    android:textColor="@color/text_button"
+                    android:onClick="editMatch"
+                    android:layout_weight="1"
+                    android:layout_width="0dp" />
+            </LinearLayout>
 
             <include
                 android:layout_width="match_parent"

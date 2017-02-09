@@ -162,7 +162,7 @@
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <RadioButton
             android:text="No Beacons Scored"
@@ -172,7 +172,8 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:checked="false"
-            android:textColor="@color/text_items" />
+            android:textColor="@color/text_items"
+            android:onClick="storeTeleBeaconsScored" />
 
         <RadioButton
             android:text="1 Beacon Scored"
@@ -181,7 +182,8 @@
             android:id="@+id/radio_tele_beacons_1"
             android:layout_weight="1"
             android:textSize="18sp"
-            android:textColor="@color/text_items" />
+            android:textColor="@color/text_items"
+            android:onClick="storeTeleBeaconsScored" />
 
         <RadioButton
             android:text="2 Beacons Scored"
@@ -190,7 +192,8 @@
             android:id="@+id/radio_tele_beacons_2"
             android:layout_weight="1"
             android:textSize="18sp"
-            android:textColor="@color/text_items" />
+            android:textColor="@color/text_items"
+            android:onClick="storeTeleBeaconsScored" />
 
         <RadioButton
             android:text="3 Beacons Scored"
@@ -199,7 +202,8 @@
             android:id="@+id/radio_tele_beacons_3"
             android:layout_weight="1"
             android:textSize="@dimen/text_items"
-            android:textColor="@color/text_items" />
+            android:textColor="@color/text_items"
+            android:onClick="storeTeleBeaconsScored" />
 
         <RadioButton
             android:text="4 Beacons Scored"
@@ -208,7 +212,8 @@
             android:id="@+id/radio_tele_beacons_4"
             android:textSize="18sp"
             android:textColor="@color/text_items"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:onClick="storeTeleBeaconsScored" />
     </RadioGroup>
 
 </LinearLayout>

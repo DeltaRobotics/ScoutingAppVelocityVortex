@@ -106,7 +106,7 @@
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <RadioButton
             android:text="No"
@@ -116,7 +116,8 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:checked="false"
-            android:textColor="@color/text_items" />
+            android:textColor="@color/text_items"
+            android:onClick="storeAutoCapballMoved"/>
 
         <RadioButton
             android:text="Yes"
@@ -126,7 +127,8 @@
             android:layout_weight="1"
             android:textSize="18sp"
             android:textColor="@color/text_items"
-            android:checked="false" />
+            android:checked="false"
+            android:onClick="storeAutoCapballMoved" />
     </RadioGroup>
 
     <TextView
@@ -140,7 +142,7 @@
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <RadioButton
             android:text="No Beacons Scored"
@@ -150,7 +152,8 @@
             android:layout_weight="1"
             android:textColor="@color/text_items"
             android:textSize="@dimen/text_items"
-            android:checked="false" />
+            android:checked="false"
+            android:onClick="storeAutoBeaconsScored" />
 
         <RadioButton
             android:text="1 Beacon Scored"
@@ -159,7 +162,8 @@
             android:id="@+id/radio_auto_beacons_1"
             android:layout_weight="1"
             android:textColor="@color/text_items"
-            android:textSize="@dimen/text_items" />
+            android:textSize="@dimen/text_items"
+            android:onClick="storeAutoBeaconsScored" />
 
         <RadioButton
             android:text="2 Beacons Scored"
@@ -168,7 +172,8 @@
             android:id="@+id/radio_auto_beacons_2"
             android:layout_weight="1"
             android:textColor="@color/text_items"
-            android:textSize="@dimen/text_items" />
+            android:textSize="@dimen/text_items"
+            android:onClick="storeAutoBeaconsScored" />
 
     </RadioGroup>
 
@@ -183,7 +188,7 @@
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <RadioButton
             android:text="Not Parked"
@@ -193,7 +198,8 @@
             android:layout_weight="1"
             android:textSize="@dimen/text_items"
             android:textColor="@color/text_items"
-            android:checked="false" />
+            android:checked="false"
+            android:onClick="storeAutoParking" />
 
         <RadioButton
             android:text="Partial Corner"
@@ -202,7 +208,8 @@
             android:id="@+id/radio_auto_parking_corner_par"
             android:layout_weight="1"
             android:textSize="@dimen/text_items"
-            android:textColor="@color/text_items" />
+            android:textColor="@color/text_items"
+            android:onClick="storeAutoParking" />
 
         <RadioButton
             android:text="Fully On Corner"
@@ -211,7 +218,8 @@
             android:id="@+id/radio_auto_parking_corner"
             android:layout_weight="1"
             android:textSize="@dimen/text_items"
-            android:textColor="@color/text_items" />
+            android:textColor="@color/text_items"
+            android:onClick="storeAutoParking" />
 
         <RadioButton
             android:text="Partial Center"
@@ -220,7 +228,8 @@
             android:id="@+id/radio_auto_parking_center_par"
             android:layout_weight="1"
             android:textSize="18sp"
-            android:textColor="@color/text_items" />
+            android:textColor="@color/text_items"
+            android:onClick="storeAutoParking" />
 
         <RadioButton
             android:text="Fully On Center"
@@ -229,7 +238,8 @@
             android:id="@+id/radio_auto_parking_center"
             android:layout_weight="1"
             android:textSize="@dimen/text_items"
-            android:textColor="@color/text_items" />
+            android:textColor="@color/text_items"
+            android:onClick="storeAutoParking" />
 
     </RadioGroup>
 
