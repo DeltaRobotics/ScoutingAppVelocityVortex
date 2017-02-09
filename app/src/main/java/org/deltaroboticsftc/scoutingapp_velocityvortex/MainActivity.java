@@ -258,6 +258,11 @@ public class MainActivity extends AppCompatActivity {
         this.setupMatch();
 
 
+        //Settings
+
+            settings = new Settings(infoManager);
+
+
         //infoManager
 
             infoManager.startAutoSection();
@@ -276,10 +281,6 @@ public class MainActivity extends AppCompatActivity {
             infoManager.startEndSection();
             infoManager.addRadioSet(endCapballStatus, "Capball Scored:");
 
-
-        //Settings
-
-            settings = new Settings(infoManager);
 
         //Font
 
@@ -392,7 +393,7 @@ public class MainActivity extends AppCompatActivity {
         alertDialogFileSaveFailed.setTitle("Save Failed");
         alertDialogFileSaveFailed.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which){dialog.dismiss();}});
 
-        switch(infoManager.createFileInfoAndPath(MainActivity.this))
+        switch(infoManager.createFileInfoAndPath(MainActivity.this, settings.getCsvFileSave()))
         {
 
             //Return Case 2: File Exists and File Setup Finished

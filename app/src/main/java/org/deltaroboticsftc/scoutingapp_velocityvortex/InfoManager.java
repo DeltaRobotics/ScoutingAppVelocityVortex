@@ -46,8 +46,13 @@ public class InfoManager
 
     private File saveFile;
     private File saveDir;
+    private File saveDataFile;
+    private File saveDataDir;
+
     private File checkFile = null;
-    String info = "";
+    private File checkDataFile = null;
+    private String info = "";
+    private String infoCSV = "";
 
     public InfoManager(String gameNamePass)
     {
@@ -145,7 +150,7 @@ public class InfoManager
 
     }
 
-    public int createFileInfoAndPath(Context MainActivity)
+    public int createFileInfoAndPath(Context MainActivity, boolean saveCSVData)
     {
 
         //Return Case 2: File Exists and File Setup Finished
@@ -158,7 +163,9 @@ public class InfoManager
         String teamNumber = this.pullTeamNumber();
         String matchNumber = this.pullMatchNumber();
         int loop;
+        int returnKey = -999;
         info = "";
+        infoCSV = "";
 
         counterPlace = 0;
         radioSetPlace = 0;
@@ -215,18 +222,21 @@ public class InfoManager
             {
 
                 info = info + arrayOutputText[loop] + " " + arrayCounter[counterPlace].getStringValue()  + "\n";
+                infoCSV = infoCSV + arrayCounter[counterPlace].getIntegerValue() + ",";
                 counterPlace = counterPlace + 1;
 
             }else if(arrayOrder[loop].equals(radioSetKey))
             {
 
                 info = info + arrayOutputText[loop] + " " + arrayRadioSet[radioSetPlace].getStringValue()  + "\n";
+                infoCSV = infoCSV + arrayRadioSet[radioSetPlace].getIntegerValue() + ",";
                 radioSetPlace = radioSetPlace + 1;
 
             }else
             {
 
                 info = "ERROR";
+                infoCSV = "ERROR";
                 return -2;
 
             }
@@ -237,13 +247,13 @@ public class InfoManager
         //System.out.println(matchNumber);
         //System.out.println(info);
 
-        saveFile = new File(Environment.getExternalStorageDirectory().getPath() + File.separator +
-                gameName + File.separator + teamNumber + File.separator +
-                teamNumber + "-" + matchNumber + ".txt");
+        System.out.println("Running Directory Creation");
+
         saveDir = new File(Environment.getExternalStorageDirectory().getPath() + File.separator +
                 gameName + File.separator + teamNumber);
+        saveFile = new File(saveDir.getPath() + File.separator + teamNumber + "-" + matchNumber + ".txt");
 
-        switch(this.checkFile())
+        switch(this.checkFile(saveFile, saveDir, false))
         {
 
             //Switch Case 1: File Does Not Exists
@@ -254,30 +264,84 @@ public class InfoManager
             case 1:
 
                 System.out.println("File Does Not Exist");
-                return 1;
+                returnKey = 1;
+                break;
 
             case 2:
 
                 System.out.println("File Exists");
-                return 2;
+                returnKey = 2;
+                break;
 
             case -1:
 
-                return -1;
+                returnKey = -1;
+                break;
 
             case -999:
 
-                return -999;
+                returnKey = -999;
+                break;
 
             default:
 
-                return -999;
+                returnKey = -999;
+                break;
 
         }
 
+
+        if(saveCSVData == true && returnKey != -999 && returnKey != -1)
+        {
+
+            System.out.println("Running Directory Creation for CSV File");
+
+            saveDataDir = new File(Environment.getExternalStorageDirectory().getPath() + File.separator +
+                    gameName + File.separator + "CSV Data");
+            saveDataFile = new File(saveDataDir.getPath() + File.separator + teamNumber + "-" + matchNumber + ".txt");
+
+            switch(this.checkFile(saveDataFile, saveDataDir, true))
+            {
+
+                //Switch Case 1: File Does Not Exists
+                //Switch Case 2: File Exists
+                //Switch Case -1: Directory Creation Failed
+                //Switch Case -999: Unknown Fail
+
+                case 1:
+
+                    System.out.println("CSV File Does Not Exist");
+                    break;
+
+                case 2:
+
+                    System.out.println("CSV File Exists");
+                    break;
+
+                case -1:
+
+                    returnKey = -1;
+                    break;
+
+                case -999:
+
+                    returnKey = -999;
+                    break;
+
+                default:
+
+                    returnKey = -999;
+                    break;
+
+            }
+
+        }
+
+        return returnKey;
+
     }
 
-    private int checkFile()
+    private int checkFile(File file, File dir, boolean csv)
     {
 
         //case 1: File Does Not Exist
@@ -288,8 +352,8 @@ public class InfoManager
         try
         {
 
-            boolean makeDir = saveDir.mkdirs();
-            boolean dirExists = saveDir.exists();
+            boolean makeDir = dir.mkdirs();
+            boolean dirExists = dir.exists();
 
             if(dirExists == true)
             {
@@ -320,24 +384,37 @@ public class InfoManager
 
         }
 
-        boolean fileExists = saveFile.exists();
+        boolean fileExists = file.exists();
+
+        if(csv == false)
+        {
+
+            checkFile = file;
+
+        }
+        else if(csv == true)
+        {
+
+            checkDataFile = file;
+
+        }
 
         if(fileExists == false)
         {
 
-            checkFile = saveFile;
             return 1;
 
         }
         else if(fileExists == true)
         {
 
-            checkFile = saveFile;
             return 2;
 
         }
 
         checkFile = null;
+        checkDataFile = null;
+        System.out.println("Create Directory Function Failed");
         return -999;
 
     }
@@ -348,6 +425,8 @@ public class InfoManager
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity).create();
         alertDialog.setTitle("Save Failed");
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which){dialog.dismiss();}});
+
+        System.out.println("Will Save CSV File: " + saveDataFile);
 
         if(saveFile == checkFile)
         {
@@ -385,6 +464,14 @@ public class InfoManager
                     contents.write(info.getBytes());
                     contents.flush();
                     contents.close();
+
+                    if(saveDataFile == true)
+                    {
+
+                        return this.createAndSaveCSVDataFile(delExisting, MainActivity);
+
+                    }
+
                     return true;
 
                 }
@@ -415,14 +502,14 @@ public class InfoManager
 
     }
 
-    public boolean createAndSaveDataFile(boolean delExisting, Context MainActivity)
+    private boolean createAndSaveCSVDataFile(boolean delExisting, Context MainActivity)
     {
 
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity).create();
-        alertDialog.setTitle("Save Failed");
+        alertDialog.setTitle("CSV Save Failed");
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which){dialog.dismiss();}});
 
-        if(saveFile == checkFile)
+        if(saveDataFile == checkDataFile)
         {
 
             try
@@ -431,18 +518,18 @@ public class InfoManager
                 if(delExisting == true)
                 {
 
-                    if(saveFile.delete() == true)
+                    if(saveDataFile.delete() == true)
                     {
 
-                        System.out.println("Deleted Existing File");
+                        System.out.println("Deleted Existing CSV File");
 
                     }
                     else
                     {
 
-                        alertDialog.setMessage("Failed to Delete Old File");
+                        alertDialog.setMessage("Failed to Delete Old CSV File");
                         alertDialog.show();
-                        System.out.println("Existing File Deletion Failed");
+                        System.out.println("Existing CSV File Deletion Failed");
                         return false;
 
                     }
@@ -450,12 +537,12 @@ public class InfoManager
 
                 }
 
-                if(saveFile.createNewFile() == true)
+                if(saveDataFile.createNewFile() == true)
                 {
 
-                    System.out.println("File Created");
-                    FileOutputStream contents = new FileOutputStream(saveFile);
-                    contents.write(info.getBytes());
+                    System.out.println("CSV File Created");
+                    FileOutputStream contents = new FileOutputStream(saveDataFile);
+                    contents.write(infoCSV.getBytes());
                     contents.flush();
                     contents.close();
                     return true;
@@ -464,9 +551,9 @@ public class InfoManager
                 else
                 {
 
-                    alertDialog.setMessage("Failed to Create New File");
+                    alertDialog.setMessage("Failed to Create New CSV File");
                     alertDialog.show();
-                    System.out.println("File Creation Failed");
+                    System.out.println("CSV File Creation Failed");
                     return false;
 
                 }
@@ -481,7 +568,7 @@ public class InfoManager
 
         }
 
-        alertDialog.setMessage("Unable to Verify Save Directory");
+        alertDialog.setMessage("Unable to Verify CSV Save Directory");
         alertDialog.show();
 
         return false;

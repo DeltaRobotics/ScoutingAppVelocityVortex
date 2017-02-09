@@ -112,6 +112,13 @@ public class RadioSet
 
     }
 
+    public int getIntegerValue()
+    {
+
+        return this.getChecked();
+
+    }
+
     private int getChecked()
     {
 
