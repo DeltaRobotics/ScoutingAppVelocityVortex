@@ -1,4 +1,4 @@
-package org.deltaroboticsftc.scoutingapp_velocityvortex;
+package org.deltaroboticsftc.delta.velocityvortexalpha;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

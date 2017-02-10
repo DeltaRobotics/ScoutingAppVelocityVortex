@@ -1,4 +1,4 @@
-package org.deltaroboticsftc.scoutingapp_velocityvortex;
+package org.deltaroboticsftc.delta.velocityvortexalpha;
 
 import android.app.AlertDialog;
 import android.content.Context;

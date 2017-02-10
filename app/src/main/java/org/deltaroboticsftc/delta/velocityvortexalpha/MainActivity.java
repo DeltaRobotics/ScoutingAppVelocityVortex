@@ -1,4 +1,4 @@
-package org.deltaroboticsftc.scoutingapp_velocityvortex;
+package org.deltaroboticsftc.delta.velocityvortexalpha;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,6 +13,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import org.deltaroboticsftc.delta.scoutingapp_velocityvortex.R;
 
 public class MainActivity extends AppCompatActivity {
 

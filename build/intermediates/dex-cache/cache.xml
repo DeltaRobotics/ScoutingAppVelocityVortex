@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="1909b5079b6fca720bfaed7f4dad9ec47ec37d8a">
+        sha1="f9f62980ea54c6ab4f4c596d87e0f15fa8a46010">
         <dex dex="C:\Robotics\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_bac357fd508f9df648661c479bde492421541555\classes.dex" />
     </item>
     <item
@@ -196,7 +196,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="7ad08dbff183893e41a00c38d353ca7fd013ee6d">
+        sha1="297044f1c6717f05d6b425fd094536631439317c">
         <dex dex="C:\Robotics\ScoutingAppVelocityVortex\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_ff9fe711dc814412f5d77262421e0b6b616f5b01\classes.dex" />
     </item>
     <item
