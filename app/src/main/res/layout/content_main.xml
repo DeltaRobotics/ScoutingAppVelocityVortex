@@ -38,7 +38,8 @@
                     android:ems="10"
                     android:id="@+id/enter_team_number"
                     android:hint="Team Number"
-                    android:textColor="@color/text_items" />
+                    android:textColor="@color/text_items"
+                    android:maxLength="10" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -47,7 +48,8 @@
                     android:ems="10"
                     android:id="@+id/enter_match_number"
                     android:hint="Match Number"
-                    android:textColor="@color/text_items" />
+                    android:textColor="@color/text_items"
+                    android:maxLength="10" />
 
                 <include
                     android:layout_width="match_parent"

@@ -3,6 +3,8 @@ package org.deltaroboticsftc.scoutingapp_velocityvortex;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Environment;
 import android.widget.EditText;
 
@@ -467,6 +469,10 @@ public class InfoManager
                     contents.flush();
                     contents.close();
 
+                    Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                    intent.setData(Uri.fromFile(saveFile));
+                    MainActivity.sendBroadcast(intent);
+
                     if(saveDataFile == true)
                     {
 
@@ -547,6 +553,11 @@ public class InfoManager
                     contents.write(infoCSV.getBytes());
                     contents.flush();
                     contents.close();
+
+                    Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                    intent.setData(Uri.fromFile(saveDataFile));
+                    MainActivity.sendBroadcast(intent);
+
                     return true;
 
                 }

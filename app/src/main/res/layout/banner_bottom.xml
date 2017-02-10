@@ -9,14 +9,10 @@
         android:layout_height="wrap_content"
         layout="@layout/banner_strip" />
 
-    <TextView
-        android:text="DRAWABLE FILE"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_title"
-        android:textStyle="bold"
-        android:textColor="@color/text_title" />
+        app:srcCompat="@drawable/scoutingappbanner"
+        android:id="@+id/imageView" />
 
 </LinearLayout>

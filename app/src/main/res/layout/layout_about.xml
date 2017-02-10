@@ -47,7 +47,7 @@
         android:id="@+id/sub_title_about_body_aboutDelta" />
 
     <TextView
-        android:text='We are a 2nd year independent FTC Robotics team and out motto is "Creating change by connecting with others".\n'
+        android:text='We are a 2nd year independent FTC Robotics team and our motto is "Creating change by connecting with others".\n'
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
