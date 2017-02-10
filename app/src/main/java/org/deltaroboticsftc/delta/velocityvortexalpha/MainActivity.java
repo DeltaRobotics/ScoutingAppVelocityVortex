@@ -14,8 +14,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import org.deltaroboticsftc.delta.scoutingapp_velocityvortex.R;
-
 public class MainActivity extends AppCompatActivity {
 
     //Auto-------------------------------------------
@@ -215,15 +213,20 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        //Temporary-----------------------------------------
         if (id == R.id.action_moveTo_review)
         {
 
+            System.out.println("Move to review");
             infoManager.storeMatchInfo();
+            System.out.println("Move to review 2");
+            infoManager.createInfo();
+            System.out.println("Move to review 3");
             setContentView(R.layout.activity_review);
+            System.out.println("Move to review 4");
             this.setupActionBar();
-            banner_title = (TextView)findViewById(R.id.text_banner_game_name);
-            banner_title.setText("Review");
+            System.out.println("Move to review 5");
+            this.setupReview(false);
+            System.out.println("Move to review 6");
             return true;
 
         }
@@ -419,6 +422,58 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void setupReview(boolean saved)
+    {
+
+        String banner = infoManager.pullTeamNumber();
+        String match = infoManager.pullMatchNumber();
+        String info = infoManager.getInfo();
+
+        setContentView(R.layout.activity_review);
+        setupActionBar();
+
+        if(saved == true)
+        {
+
+            banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+            banner_title.setText(banner);
+
+            TextView text_match = (TextView)findViewById(R.id.sub_title_review_match);
+            text_match.setText("Match: " + match);
+
+        }
+        else
+        {
+
+            if(banner == null || banner.equals(""))
+            {
+
+                banner = "Team";
+                System.out.println("Team Number Not Set");
+
+            }
+
+            if(match == null || banner.equals(""))
+            {
+
+                match = "Match";
+                System.out.println("Match Number Not Set");
+
+            }
+
+            banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+            banner_title.setText("Match Not Saved");
+
+            TextView text_match = (TextView)findViewById(R.id.sub_title_review_match);
+            text_match.setText(banner + "-" + match);
+
+        }
+
+        TextView text_info = (TextView)findViewById(R.id.text_review_info);
+        text_info.setText(info);
+
+    }
+
     public void save(View v)
     {
 
@@ -457,20 +512,7 @@ public class MainActivity extends AppCompatActivity {
                     if(infoManager.createAndSaveFile(true, MainActivity.this, settings.getCsvFileSave()) == true)
                     {
 
-                        String banner = infoManager.pullTeamNumber();
-                        String match = infoManager.pullMatchNumber();
-                        String info = infoManager.getInfo();
-
-                        setContentView(R.layout.activity_review);
-                        setupActionBar();
-                        banner_title = (TextView)findViewById(R.id.text_banner_game_name);
-                        banner_title.setText(banner);
-
-                        TextView text_match = (TextView)findViewById(R.id.sub_title_review_match);
-                        text_match.setText("Match: " + match);
-
-                        TextView text_info = (TextView)findViewById(R.id.text_review_info);
-                        text_info.setText(info);
+                        setupReview(true);
 
                     }
 
@@ -488,20 +530,7 @@ public class MainActivity extends AppCompatActivity {
                 if(infoManager.createAndSaveFile(false, MainActivity.this, settings.getCsvFileSave()) == true)
                 {
 
-                    String banner = infoManager.pullTeamNumber();
-                    String match = infoManager.pullMatchNumber();
-                    String info = infoManager.getInfo();
-
-                    setContentView(R.layout.activity_review);
-                    this.setupActionBar();
-                    banner_title = (TextView)findViewById(R.id.text_banner_game_name);
-                    banner_title.setText(banner);
-
-                    TextView text_match = (TextView)findViewById(R.id.sub_title_review_match);
-                    text_match.setText("Match: " + match);
-
-                    TextView text_info = (TextView)findViewById(R.id.text_review_info);
-                    text_info.setText(info);
+                    this.setupReview(true);
 
                 }
 

@@ -15,11 +15,11 @@
         android:title="New Match"
         app:showAsAction="never" />
 
-    <item android:title="Settings"
-        android:id="@+id/action_moveTo_settings"
-        app:showAsAction="never"
+    <item
+        android:id="@+id/action_moveTo_review"
         android:orderInCategory="100"
-        />
+        android:title="Review Match"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_moveTo_about"
@@ -27,10 +27,10 @@
         android:title="About"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_moveTo_review"
+    <item android:title="Settings"
+        android:id="@+id/action_moveTo_settings"
+        app:showAsAction="never"
         android:orderInCategory="100"
-        android:title="Review(temp)"
-        app:showAsAction="never" />
+        />
 
 </menu>

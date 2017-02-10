@@ -154,49 +154,10 @@ public class InfoManager
 
     }
 
-    public int createFileInfoAndPath(Context MainActivity, boolean saveCSVData)
+    public int createInfo()
     {
 
-        //Return Case 2: File Exists and File Setup Finished
-        //Return Case 1: File Does Not Exist and File Setup Finished
-        //Return Case 0: Do Nothing
-        //Return Case -1: Directory Creation Failed
-        //Return Case -2: Info Creation Failed
-        //Return Case -999: Unknown Fail
-
-        String teamNumber = this.pullTeamNumber();
-        String matchNumber = this.pullMatchNumber();
         int loop;
-        int returnKey = -999;
-        info = "";
-        infoCSV = "";
-
-        counterPlace = 0;
-        radioSetPlace = 0;
-
-        AlertDialog alertDialogMissingData = new AlertDialog.Builder(MainActivity).create();
-        alertDialogMissingData.setTitle("Missing Data");
-        alertDialogMissingData.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which){dialog.dismiss();}});
-
-        if(teamNumber.equals(""))
-        {
-
-            this.teamNumberClaimFocus();
-            alertDialogMissingData.setMessage("Please Enter a Team Number");
-            alertDialogMissingData.show();
-            return 0;
-
-        }
-
-        if(matchNumber.equals(""))
-        {
-
-            this.matchNumberClaimFocus();
-            alertDialogMissingData.setMessage("Please Enter a Match Number");
-            alertDialogMissingData.show();
-            return 0;
-
-        }
 
         for(loop = 0; loop < orderNext; loop++)
         {
@@ -247,9 +208,60 @@ public class InfoManager
 
         }
 
-        //System.out.println(teamNumber);
-        //System.out.println(matchNumber);
-        //System.out.println(info);
+        return 0;
+
+    }
+
+    public int createFileInfoAndPath(Context MainActivity, boolean saveCSVData)
+    {
+
+        //Return Case 2: File Exists and File Setup Finished
+        //Return Case 1: File Does Not Exist and File Setup Finished
+        //Return Case 0: Do Nothing
+        //Return Case -1: Directory Creation Failed
+        //Return Case -2: Info Creation Failed
+        //Return Case -999: Unknown Fail
+
+        String teamNumber = this.pullTeamNumber();
+        String matchNumber = this.pullMatchNumber();
+        int loop;
+        int returnKey = -999;
+        info = "";
+        infoCSV = "";
+
+        counterPlace = 0;
+        radioSetPlace = 0;
+
+        AlertDialog alertDialogMissingData = new AlertDialog.Builder(MainActivity).create();
+        alertDialogMissingData.setTitle("Missing Data");
+        alertDialogMissingData.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener(){public void onClick(DialogInterface dialog, int which){dialog.dismiss();}});
+
+        if(teamNumber.equals(""))
+        {
+
+            this.teamNumberClaimFocus();
+            alertDialogMissingData.setMessage("Please Enter a Team Number");
+            alertDialogMissingData.show();
+            return 0;
+
+        }
+
+        if(matchNumber.equals(""))
+        {
+
+            this.matchNumberClaimFocus();
+            alertDialogMissingData.setMessage("Please Enter a Match Number");
+            alertDialogMissingData.show();
+            return 0;
+
+        }
+
+        if(this.createInfo() == -2)
+        {
+
+            return -2;
+
+        }
 
         System.out.println("Running Directory Creation");
 
