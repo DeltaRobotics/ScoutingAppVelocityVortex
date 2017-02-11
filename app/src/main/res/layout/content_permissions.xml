@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_about"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="org.deltaroboticsftc.delta.velocityvortexalpha.MainActivity"
+    tools:showIn="@layout/activity_permissions"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/banner_top" />
+
+            <TextView
+                android:text="This app requires specific permissions and can not function without them.  Please grant this app the needed permissions to continue."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_about_body"
+                android:textColor="@color/text_about_body" />
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/banner_strip" />
+
+            <Button
+                android:text="Grant Permissions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button"
+                android:textColor="@color/text_button"
+                android:textSize="@dimen/text_button"
+                android:onClick="requestPermissions" />
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/banner_bottom" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

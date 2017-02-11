@@ -157,6 +157,12 @@ public class InfoManager
     public int createInfo()
     {
 
+        info = "";
+        infoCSV = "";
+
+        counterPlace = 0;
+        radioSetPlace = 0;
+
         int loop;
 
         for(loop = 0; loop < orderNext; loop++)
@@ -224,7 +230,6 @@ public class InfoManager
 
         String teamNumber = this.pullTeamNumber();
         String matchNumber = this.pullMatchNumber();
-        int loop;
         int returnKey = -999;
         info = "";
         infoCSV = "";

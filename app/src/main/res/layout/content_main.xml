@@ -117,6 +117,16 @@
                     android:layout_height="wrap_content"
                     layout="@layout/banner_strip" />
 
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/layout_misc" />
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/banner_strip" />
+
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
