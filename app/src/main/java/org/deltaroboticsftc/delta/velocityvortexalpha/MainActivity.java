@@ -1,9 +1,13 @@
 package org.deltaroboticsftc.delta.velocityvortexalpha;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.location.Location;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -116,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         public void setCsvFileSave(View v) {settings.setCsvFileSave();}
 
         public Typeface face;
+        private final int REQUEST_KEY = 1;
 
 
     //Font
@@ -127,18 +132,51 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        this.setupActionBar();
 
         face = Typeface.createFromAsset(getAssets(),"fonts/SFTransRobotics.ttf");
 
-        banner_title = (TextView)findViewById(R.id.text_banner_game_name);
         game_name = getString(R.string.game_name);
-        banner_title.setText(game_name);
 
-        infoManager = new InfoManager(game_name);
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+        {
 
-        this.setup();
+            this.finishOnCreate();
+
+        }
+        else
+        {
+
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_KEY);
+            this.setupPermissionsPage();
+
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
+
+        if (requestCode == REQUEST_KEY)
+        {
+
+            if(grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+
+                // We can now safely use the API we requested access to
+                System.out.println("Permissions granted");
+                this.finishOnCreate();
+
+            }
+            else
+            {
+
+                // Permission was denied or request was cancelled
+                System.out.println("Permissions denied");
+                this.setupPermissionsPage();
+
+            }
+        }
 
     }
 
@@ -216,17 +254,17 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_moveTo_review)
         {
 
-            System.out.println("Move to review");
-            infoManager.storeMatchInfo();
-            System.out.println("Move to review 2");
-            infoManager.createInfo();
-            System.out.println("Move to review 3");
+            if(banner_title.getText().equals(game_name))
+            {
+
+                infoManager.storeMatchInfo();
+                infoManager.createInfo();
+
+            }
+
             setContentView(R.layout.activity_review);
-            System.out.println("Move to review 4");
             this.setupActionBar();
-            System.out.println("Move to review 5");
             this.setupReview(false);
-            System.out.println("Move to review 6");
             return true;
 
         }
@@ -235,7 +273,35 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void requestPermissions(View v)
+    {
 
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_KEY);
+
+    }
+
+    private void finishOnCreate()
+    {
+
+        setContentView(R.layout.activity_main);
+        this.setupActionBar();
+
+        banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+        banner_title.setText(game_name);
+        infoManager = new InfoManager(game_name);
+
+        this.setup();
+
+    }
+
+    private void setupPermissionsPage()
+    {
+
+        setContentView(R.layout.activity_permissions);
+        banner_title = (TextView)findViewById(R.id.text_banner_game_name);
+        banner_title.setText("Permissions Missing");
+
+    }
 
     private void setupActionBar()
     {
@@ -449,15 +515,13 @@ public class MainActivity extends AppCompatActivity {
             {
 
                 banner = "Team";
-                System.out.println("Team Number Not Set");
 
             }
 
-            if(match == null || banner.equals(""))
+            if(match == null || match.equals(""))
             {
 
                 match = "Match";
-                System.out.println("Match Number Not Set");
 
             }
 
