@@ -690,9 +690,6 @@ public class MainActivity extends AppCompatActivity {
         TextView title_end = (TextView) findViewById(R.id.title_end);
         title_end.setTypeface(customFont);
 
-        TextView title_comments = (TextView) findViewById(R.id.title_comments);
-        title_comments.setTypeface(customFont);
-
     }
 
     public void applyFontToTitlesSettings()
