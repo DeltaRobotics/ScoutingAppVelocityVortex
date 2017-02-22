@@ -98,6 +98,12 @@ public class MainActivity extends AppCompatActivity {
             public void  storeEndCapballStatus(View v) {endCapballStatus.storeCurChecked();}
 
 
+    //Misc
+
+            //Comments
+                private EditText comments;
+
+
     //Setup System Controls------DON'T CHANGE----------
 
         private TextView banner_title;
@@ -201,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             this.setupActionBar();
             this.setupMatch();
-            infoManager.editMatch();
+            infoManager.editMatch(comments);
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
             banner_title.setText(game_name);
             this.applyFontToTitlesMain();
@@ -226,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_moveTo_settings)
         {
 
+            infoManager.setMisc(comments);
             infoManager.storeMatchInfo();
             setContentView(R.layout.activity_settings);
             this.setupActionBar();
@@ -241,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_moveTo_about)
         {
 
+            infoManager.setMisc(comments);
             infoManager.storeMatchInfo();
             setContentView(R.layout.activity_about);
             this.setupActionBar();
@@ -257,6 +265,7 @@ public class MainActivity extends AppCompatActivity {
             if(banner_title.getText().equals(game_name))
             {
 
+                infoManager.setMisc(comments);
                 infoManager.storeMatchInfo();
                 infoManager.createInfo();
 
@@ -480,6 +489,12 @@ public class MainActivity extends AppCompatActivity {
                 endCapballStatus.setChecked(-1);
 
 
+        //Misc
+
+            //Comments
+                comments = (EditText) findViewById(R.id.textBox_misc_comments);
+
+
         //infoManager--DON'T CHANGE--
             teamNumber = (EditText)findViewById(R.id.enter_team_number);
             infoManager.setTeamNumberLoction(teamNumber);
@@ -540,7 +555,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void save(View v)
     {
-
+        infoManager.setMisc(comments);
         infoManager.storeMatchInfo();
 
         AlertDialog alertDialogFileSaveFailed = new AlertDialog.Builder(MainActivity.this).create();
@@ -661,7 +676,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.setupActionBar();
         this.setupMatch();
-        infoManager.editMatch();
+        infoManager.editMatch(comments);
         banner_title = (TextView)findViewById(R.id.text_banner_game_name);
         banner_title.setText(game_name);
         this.applyFontToTitlesMain();

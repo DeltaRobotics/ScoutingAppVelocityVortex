@@ -154,6 +154,16 @@ public class InfoManager
 
     }
 
+    //Misc Variables
+    private String comments = null;
+
+    public void setMisc(EditText commentsPass)
+    {
+
+        comments = commentsPass.getText().toString();
+
+    }
+
     public int createInfo()
     {
 
@@ -213,7 +223,8 @@ public class InfoManager
             }
 
         }
-
+        info = info + "\n" + "---------- Comments ------------" + "\n" + comments;
+        infoCSV = infoCSV + comments;
         return 0;
 
     }
@@ -319,7 +330,7 @@ public class InfoManager
 
             saveDataDir = new File(Environment.getExternalStorageDirectory().getPath() + File.separator +
                     gameName + File.separator + "CSV Data");
-            saveDataFile = new File(saveDataDir.getPath() + File.separator + teamNumber + "-" + matchNumber + ".txt");
+            saveDataFile = new File(saveDataDir.getPath() + File.separator + teamNumber + "-" + matchNumber + ".csv");
 
             switch(this.checkFile(saveDataFile, saveDataDir, true))
             {
@@ -628,11 +639,12 @@ public class InfoManager
 
     }
 
-    public void editMatch()
+    public void editMatch(EditText commentsPass)
     {
 
         teamNumberLocation.setText(teamNum);
         matchNumberLocation.setText(matchNum);
+        commentsPass.setText(comments);
 
     }
 
