@@ -49,7 +49,9 @@
                     android:id="@+id/enter_match_number"
                     android:hint="Match Number"
                     android:textColor="@color/text_items"
-                    android:maxLength="10" />
+                    android:maxLength="10"
+                    android:freezesText="false"
+                    android:imeOptions="actionDone"/>
 
                 <include
                     android:layout_width="match_parent"
