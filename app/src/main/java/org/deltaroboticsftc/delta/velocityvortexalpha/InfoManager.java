@@ -137,6 +137,8 @@ public class InfoManager
         matchNumberLocation.setText(null);
         matchNum = null;
         matchNumberLocation.clearFocus();
+        commentsLocation.setText(null);
+        comments = null;
 
         for(loop = 0; loop < counterNext; loop++)
         {
@@ -155,12 +157,20 @@ public class InfoManager
     }
 
     //Misc Variables
+    private EditText commentsLocation;
     private String comments = null;
 
     public void setMisc(EditText commentsPass)
     {
 
-        comments = commentsPass.getText().toString();
+        commentsLocation = commentsPass;
+
+    }
+
+    public void storeMisc()
+    {
+
+        comments = commentsLocation.getText().toString();
 
     }
 
@@ -639,12 +649,12 @@ public class InfoManager
 
     }
 
-    public void editMatch(EditText commentsPass)
+    public void editMatch()
     {
 
         teamNumberLocation.setText(teamNum);
         matchNumberLocation.setText(matchNum);
-        commentsPass.setText(comments);
+        commentsLocation.setText(comments);
 
     }
 

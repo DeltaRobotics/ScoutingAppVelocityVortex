@@ -2,6 +2,6 @@
     <string name="app_name">Scouting App</string>
     <string name="game_name">Velocity Vortex</string>
 
-    <string name="version_number">Version Dev 2.2</string>
+    <string name="version_number">Version 3.4</string>
     <string name="title_activity_review">ReviewActivity</string>
 </resources>

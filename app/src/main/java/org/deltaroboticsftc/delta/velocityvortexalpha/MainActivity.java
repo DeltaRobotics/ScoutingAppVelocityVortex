@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             this.setupActionBar();
             this.setupMatch();
-            infoManager.editMatch(comments);
+            infoManager.editMatch();
             banner_title = (TextView)findViewById(R.id.text_banner_game_name);
             banner_title.setText(game_name);
             this.applyFontToTitlesMain();
@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_moveTo_settings)
         {
 
-            infoManager.setMisc(comments);
+            infoManager.storeMisc();
             infoManager.storeMatchInfo();
             setContentView(R.layout.activity_settings);
             this.setupActionBar();
@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_moveTo_about)
         {
 
-            infoManager.setMisc(comments);
+            infoManager.storeMisc();
             infoManager.storeMatchInfo();
             setContentView(R.layout.activity_about);
             this.setupActionBar();
@@ -265,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
             if(banner_title.getText().equals(game_name))
             {
 
-                infoManager.setMisc(comments);
+                infoManager.storeMisc();
                 infoManager.storeMatchInfo();
                 infoManager.createInfo();
 
@@ -493,6 +493,7 @@ public class MainActivity extends AppCompatActivity {
 
             //Comments
                 comments = (EditText) findViewById(R.id.textBox_misc_comments);
+                infoManager.setMisc(comments);
 
 
         //infoManager--DON'T CHANGE--
@@ -555,7 +556,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void save(View v)
     {
-        infoManager.setMisc(comments);
+        infoManager.storeMisc();
         infoManager.storeMatchInfo();
 
         AlertDialog alertDialogFileSaveFailed = new AlertDialog.Builder(MainActivity.this).create();
@@ -676,7 +677,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.setupActionBar();
         this.setupMatch();
-        infoManager.editMatch(comments);
+        infoManager.editMatch();
         banner_title = (TextView)findViewById(R.id.text_banner_game_name);
         banner_title.setText(game_name);
         this.applyFontToTitlesMain();
@@ -704,6 +705,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextView title_end = (TextView) findViewById(R.id.title_end);
         title_end.setTypeface(customFont);
+
+        TextView title_comments = (TextView) findViewById(R.id.title_comments);
+        title_comments.setTypeface(customFont);
 
     }
 
